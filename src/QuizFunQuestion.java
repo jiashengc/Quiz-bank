@@ -3,17 +3,20 @@ public class QuizFunQuestion extends Modules {
 	private String questionName[];
 	private String role;
 	private int roleNum[];
+	private boolean played;
 	
 	public QuizFunQuestion(){
 		questionName = new String[]{};
 		role = "";
 		roleNum = new int[]{};
+		played = false;
 	}
 	
-	public QuizFunQuestion(String questionArray[], String role, int roleNum[] ){
+	public QuizFunQuestion(String questionArray[], String role, int roleNum[], boolean played){
 		this.questionName = questionArray;
 		this.role = role;
 		this.roleNum = roleNum;
+		this.played = played;
 	}
 	
 	public String[] getQuestionArray() {
@@ -38,6 +41,14 @@ public class QuizFunQuestion extends Modules {
 
 	public void setRoleNum(int roleNum[]) {
 		this.roleNum = roleNum;
+	}
+	
+	public boolean isPlayed() {
+		return played;
+	}
+
+	public void setPlayed(boolean played) {
+		this.played = played;
 	}
 	
 	public String toString(){

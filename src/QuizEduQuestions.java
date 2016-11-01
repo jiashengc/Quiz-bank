@@ -3,17 +3,20 @@ public class QuizEduQuestions extends Modules{
 	private String questionName[];
 	private int questionArray[][];
 	private int answer[];
+	private boolean played;
 	
 	public QuizEduQuestions(){
 		questionName = new String[]{};
 		questionArray = new int[][]{{}};
 		answer = new int[]{};
+		played = false;
 	}
 	
-	public QuizEduQuestions(String questionName[], int questionArray[][],int answer[]){
+	public QuizEduQuestions(String questionName[], int questionArray[][],int answer[], boolean played){
 		this.questionName = questionName;
 		this.questionArray = questionArray;
 		this.answer = answer;
+		this.played = played;
 	}
 	
 	public String[] getQuestionName() {
@@ -38,6 +41,14 @@ public class QuizEduQuestions extends Modules{
 	
 	public void setAnswer(int answer[]) {
 		this.answer = answer;
+	}
+	
+	public boolean isPlayed() {
+		return played;
+	}
+
+	public void setPlayed(boolean played) {
+		this.played = played;
 	}
 	
 	public String toString(){
