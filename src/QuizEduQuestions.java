@@ -1,5 +1,5 @@
 
-public class QuizEduQuestions {
+public class QuizEduQuestions extends Modules{
 	private String questionName[];
 	private int questionArray[][];
 	private int answer[];
