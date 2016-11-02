@@ -5,7 +5,7 @@ public class QuestionsFun {
 	private int roleNum[];
 	private boolean played;
 	
-	public QuestionsFun(){
+	public QuestionsFun(){	
 		questionName = new String[]{};
 		role = "";
 		roleNum = new int[]{};

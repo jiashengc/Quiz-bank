@@ -1,46 +1,63 @@
 
 public class QuizEduQuestions extends Modules{
-	private String questionName;
-	private String questionOption[];
-	private String answer;
+	public QuestionsEdu questionArray[];
+	private Result results[];
+	private int maxScore;
+	private int score;
 	
 	public QuizEduQuestions(){
-		questionName = "";
-		questionOption = new String[]{};
-		answer = "";
+		questionArray = new QuestionsEdu[]{};
+		maxScore = 0;
+		score = 0;
 	}
 	
-	public QuizEduQuestions(String questionName, String questionOption[], String answer){
-		this.questionName = questionName;
-		this.questionOption = questionOption;
-		this.answer = answer;
+	public QuizEduQuestions(QuestionsEdu questionArray[], Result results[], int maxScore, int score){
+		this.questionArray = questionArray;
+		this.maxScore = maxScore;
+		this.score = score;
 	}
 	
-	public String getQuestionName(){
-		return questionName;
+	public QuizEduQuestions(String moduleType,Result results[], QuestionsEdu questionArray[], int maxScore, int score){
+		this.setModuleType(moduleType);
+		this.setResult(results);
+		this.questionArray = questionArray;
+		this.maxScore = maxScore;
+		this.score = score;
 	}
 	
-	public void setQuestionName(String questionName){
-		this.questionName = questionName;
+	public QuestionsEdu[] getQuestionArray(){
+		return questionArray;
 	}
 	
-	public String[] getQuestionOption(){
-		return questionOption;
+	public void setQuestionArray(QuestionsEdu questionArray[]){
+		this.questionArray = questionArray;
 	}
 	
-	public void setQuestionOption(String questionOption[]){
-		this.questionOption = questionOption;
+	public int getMaxScore(){
+		return maxScore;
 	}
 	
-	public String getAnswer(){
-		return answer;
+	public void setMaxScore(int maxScore){
+		this.maxScore = maxScore;
 	}
 	
-	public void setAnswer(String answer){
-		this.answer = answer;
+	public int getScore(){
+		return score;
 	}
 	
-	public String toString(){
-		return super.toString()+"\nQuestion name\t:\t"+questionName;
+	public void setScore(int score){
+		this.score = score;
 	}
+	
+	public String showResult(){
+		String tmp = "";
+		
+		for(int i=0 ; i<results.length;i+=1){
+			tmp += "Attempt "+(i+1)+"\t:\t"+results[i].toString();
+		}
+		return tmp;
+	}
+
+	//TODO where is your toString() method you bitch
+	
 }

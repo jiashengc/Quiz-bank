@@ -1,55 +1,31 @@
 
 public class Modules {
-	private String moduleName;
-	private int moduleType[];
-	private int score;
-	private Result[] results = new Result[20];
-	
-	public String showResult(){
-		String tmp = "";
-		for(int i=0 ; i<results.length;i+=1){
-			tmp += "Attempt "+(i+1)+"\t:\t"+results.toString();
-		}
-		return tmp;
-	}
+	private String moduleType;
+	private Result results[];
 	
 	public Modules(){
-		moduleName = "";
-		moduleType = new int[]{0,1};
-		score = 0;
+		moduleType = "";
+		results = new Result[]{};
 	}
 	
-	public Modules(String moduleName, int moduleType[], int score){
-		this.moduleName = moduleName;
+	public Modules(String moduleType, Result results[]){
 		this.moduleType = moduleType;
-		this.score = score;
+		this.results = results;
 	}
 	
-	public String getModuleName() {
-		return moduleName;
-	}
-	
-	public void setModuleName(String moduleName) {
-		this.moduleName = moduleName;
-	}
-
-	public int[] getModuleType() {
+	public String getModuleType(){
 		return moduleType;
 	}
-
-	public void setModuleType(int moduleType[]) {
+	
+	public void setModuleType(String moduleType){
 		this.moduleType = moduleType;
 	}
 	
-	public int getScore(){
-		return score;
+	public Result[] getResult(){
+		return results;
 	}
 	
-	public void setScore(int score){
-		this.score = score;
-	}
-	
-	public String toString(){
-		return "Module name\t:\t" +moduleName +"\nModule Type\t:\t1. "+moduleType[0] +" 2. " +moduleType[1];
+	public void setResult(Result results[]){
+		this.results = results;
 	}
 }
