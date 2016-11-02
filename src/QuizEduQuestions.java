@@ -1,67 +1,46 @@
 
 public class QuizEduQuestions extends Modules{
-	private String questionName[];
-	private int questionArray[][];
-	private int answer[];
-	private boolean played;
+	private String questionName;
+	private String questionOption[];
+	private String answer;
 	
 	public QuizEduQuestions(){
-		questionName = new String[]{};
-		questionArray = new int[][]{{}};
-		answer = new int[]{};
-		played = false;
+		questionName = "";
+		questionOption = new String[]{};
+		answer = "";
 	}
 	
-	public QuizEduQuestions(String questionName[], int questionArray[][],int answer[], boolean played){
+	public QuizEduQuestions(String questionName, String questionOption[], String answer){
 		this.questionName = questionName;
-		this.questionArray = questionArray;
+		this.questionOption = questionOption;
 		this.answer = answer;
-		this.played = played;
 	}
 	
-	public String[] getQuestionName() {
+	public String getQuestionName(){
 		return questionName;
 	}
 	
-	public void setQuestionName(String questionName[]) {
+	public void setQuestionName(String questionName){
 		this.questionName = questionName;
 	}
 	
-	public int[][] getQuestionArray() {
-		return questionArray;
+	public String[] getQuestionOption(){
+		return questionOption;
 	}
 	
-	public void setQuestionArray(int questionArray[][]) {
-		this.questionArray = questionArray;
+	public void setQuestionOption(String questionOption[]){
+		this.questionOption = questionOption;
 	}
 	
-	public int[] getAnswer() {
+	public String getAnswer(){
 		return answer;
 	}
 	
-	public void setAnswer(int answer[]) {
+	public void setAnswer(String answer){
 		this.answer = answer;
 	}
 	
-	public boolean isPlayed() {
-		return played;
-	}
-
-	public void setPlayed(boolean played) {
-		this.played = played;
-	}
-	
 	public String toString(){
-		String tmpName = "";
-		
-		for(int i = 0; i < 100 ; i++){
-			if (questionName[i] == null){
-				break;
-			}
-			else{
-				tmpName += questionName[i] + "\t";
-			}
-		}
-		return super.toString()+"\nQuestion Name\t:\t"+tmpName;
+		return super.toString()+"\nQuestion name\t:\t"+questionName;
 	}
 }
