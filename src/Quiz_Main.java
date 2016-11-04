@@ -150,19 +150,55 @@ public class Quiz_Main {
 		
 		modu[0] = new QuizEduQuestions("Education", "Kidz Math", questions, 10, 0);
 		
-		System.out.println(modu[0].getModuleName());
-		for(int i = 0; i < 10; i+=1) {
+		printQuestions(modu[0]);
+		
+	}
+	
+	public static void printQuestions(Modules modu) {
+		
+		int count = 0;
+		String userInput;
+		char[] changedInput = new char[10];
+		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+		
+		System.out.println(modu.getModuleName());
+		
+		do {
 			
 			System.out.println("");
-			System.out.println(((QuizEduQuestions)modu[0]).questionArray[i].getQuestionName());
-			for (int n = 0; n < 4; n+=1) {
-				char[] temp = {'A', 'B', 'C', 'D'};
-				
-				System.out.println(temp[n] + ". " + ((QuizEduQuestions)modu[0]).questionArray[i].getQuestionOption(n));
+			System.out.println(((QuizEduQuestions)modu).questionArray[count].getQuestionName());
+			
+			// Loop through the individual questions options array
+			for (int n = 0; n < ((QuizEduQuestions)modu).questionArray[count].getQuestionOption().length; n+=1) {
+				System.out.println(temp[n] + ". " + ((QuizEduQuestions)modu).questionArray[count].getQuestionOption(n));
 			}
 			
+			// Ask for user input and take only the first character, and turn it to upper case
+			System.out.print("\nYour Answer: ");
+			userInput = input.next();
+			userInput = userInput.toUpperCase();
+			changedInput[count] = userInput.charAt(0);
 			
+			count +=1;
+			
+		} while (count <= 9);
+		
+		checkResults(changedInput, modu);
+		
+	}
+	
+	public static void checkResults(char[] results, Modules modu) {
+		
+		int score = 0;
+		for (int i = 0; i < 10; i+=1) {
+			if (results[i] == ((QuizEduQuestions)modu).questionArray[i].getAnswer().charAt(0)) {
+				score +=1;
+			}
 		}
+		
+		System.out.println("\nResults: " + score + " / " + ((QuizEduQuestions)modu).getMaxScore() + "\n");
+		System.out.println("Returning to main menu...");
+		menu();
 		
 	}
 	
