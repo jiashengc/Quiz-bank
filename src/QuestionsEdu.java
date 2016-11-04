@@ -28,6 +28,10 @@ public class QuestionsEdu {
 		return questionOption;
 	}
 	
+	public String getQuestionOption(int n) {
+		return questionOption[n];
+	}
+	
 	public void setQuestionOption(String questionOption[]){
 		this.questionOption = questionOption;
 	}
@@ -41,6 +45,8 @@ public class QuestionsEdu {
 	}
 	
 	public String toString(){
-		return super.toString()+"\nQuestion name\t:\t"+questionName;
+		return "\nQuestion name\t:\t"+questionName;
 	}
+	
+	
 }

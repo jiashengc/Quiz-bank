@@ -1,25 +1,29 @@
 
 public class QuizEduQuestions extends Modules{
 	public QuestionsEdu questionArray[];
-	private Result results[];
 	private int maxScore;
 	private int score;
 	
 	public QuizEduQuestions(){
-		questionArray = new QuestionsEdu[]{};
-		maxScore = 0;
+		QuestionsEdu questionArray[] = new QuestionsEdu[10];
+		for (int i = 0; i < 10; i+=1) {
+			questionArray[i] = new QuestionsEdu();
+		}
+		maxScore = 100;
 		score = 0;
 	}
 	
-	public QuizEduQuestions(QuestionsEdu questionArray[], Result results[], int maxScore, int score){
-		this.questionArray = questionArray;
+	public QuizEduQuestions(QuestionsEdu questionArray[], int maxScore, int score){
+		for (int i = 0; i < 10; i+=1) {
+			this.questionArray[i] = questionArray[i];
+		}
 		this.maxScore = maxScore;
 		this.score = score;
 	}
 	
-	public QuizEduQuestions(String moduleType,Result results[], QuestionsEdu questionArray[], int maxScore, int score){
+	public QuizEduQuestions(String moduleType, String moduleName, QuestionsEdu questionArray[], int maxScore, int score){
 		this.setModuleType(moduleType);
-		this.setResult(results);
+		this.setModuleName(moduleName);
 		this.questionArray = questionArray;
 		this.maxScore = maxScore;
 		this.score = score;
@@ -29,8 +33,10 @@ public class QuizEduQuestions extends Modules{
 		return questionArray;
 	}
 	
-	public void setQuestionArray(QuestionsEdu questionArray[]){
-		this.questionArray = questionArray;
+	public void setQuestionArray(QuestionsEdu[] questionArray){
+		for (int i = 0; i < 10; i+=1) {
+			this.questionArray[i] = questionArray[i];
+		}
 	}
 	
 	public int getMaxScore(){
@@ -57,7 +63,15 @@ public class QuizEduQuestions extends Modules{
 		}
 		return tmp;
 	}
-
-	//TODO where is your toString() method you bitch
+	
+	public String toString(){
+		String tmpName = "";
+		
+		for(int i=0; i < questionArray.length; i+=1){
+			tmpName += questionArray[i] +"\t";
+		}
+		
+		return super.toString() + "\n" + tmpName;
+	}
 	
 }

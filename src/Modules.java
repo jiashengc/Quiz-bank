@@ -1,7 +1,8 @@
 
 public class Modules {
 	private String moduleType;
-	private Result results[];
+	private String moduleName;
+	public Result results[];
 	
 	public Modules(){
 		moduleType = "";
@@ -21,11 +22,23 @@ public class Modules {
 		this.moduleType = moduleType;
 	}
 	
+	public String getModuleName() {
+		return moduleName;
+	}
+	
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}
+	
 	public Result[] getResult(){
 		return results;
 	}
 	
 	public void setResult(Result results[]){
 		this.results = results;
+	}
+	
+	public String toString(){
+		return "Module Type\t:\t"+moduleType;
 	}
 }
