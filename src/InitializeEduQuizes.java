@@ -281,7 +281,6 @@ public class InitializeEduQuizes {
 		questions[9].setAnswer("D");
 		
 		
-		
 		this.modu[4] = new QuizEduQuestions("Education", "AdvanceMaths", questions, 10, 0);
 	}
 	
