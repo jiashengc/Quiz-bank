@@ -1,67 +1,40 @@
 
-public class QuestionsFun {
-	private String questionName[];
-	private String role;
-	private int roleNum[];
-	private boolean played;
-	
-	public QuestionsFun(){	
-		questionName = new String[]{};
-		role = "";
-		roleNum = new int[]{};
-		played = false;
-	}
-	
-	public QuestionsFun(String questionArray[], String role, int roleNum[], boolean played){
-		this.questionName = questionArray;
-		this.role = role;
-		this.roleNum = roleNum;
-		this.played = played;
-	}
-	
-	public String[] getQuestionArray() {
-		return questionName;
-	}
-	
-	public void setQuestionArray(String questionArray[]) {
-		this.questionName = questionArray;
-	}
+public class QuestionsFun extends Questions {
+	private int questionKey[];
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public int[] getRoleNum() {
-		return roleNum;
-	}
-
-	public void setRoleNum(int roleNum[]) {
-		this.roleNum = roleNum;
+	public QuestionsFun() {
+		questionKey = new int[4];
 	}
 	
-	public boolean isPlayed() {
-		return played;
-	}
-
-	public void setPlayed(boolean played) {
-		this.played = played;
+	public QuestionsFun(int i) {
+		questionKey = new int[i];
 	}
 	
-	public String toString(){
-		String tmpName = "";
-		
-		for(int i = 0; i < 100 ; i++){
-			if (questionName[i] == null){
-				break;
-			}
-			else{
-				tmpName += questionName[i] + "\t";
-			}
+	public QuestionsFun(int questionKey[]) {
+		for (int i = 0; i < questionKey.length; i+=1) {
+			this.questionKey[i] = questionKey[i];
 		}
-		return super.toString()+"\nQuestion name\t:\t" +tmpName;
 	}
+	
+	public QuestionsFun(String questionName, String[] questionOption, int[] questionKey) {
+		this.setQuestionName(questionName);
+		this.setQuestionOption(questionOption);
+		for (int i = 0; i < questionKey.length; i+=1) {
+			this.questionKey[i] = questionKey[i];
+		}
+	}
+	
+	public int[] getQuestionKey() {
+		return questionKey;
+	}
+	
+	public int getQuestionKey(int i) {
+		return questionKey[i];
+	}
+	
+	public void setQuestionKey(int questionKey[]) {
+		this.questionKey = questionKey;
+	}
+	
+	
 }

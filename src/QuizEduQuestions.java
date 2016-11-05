@@ -14,7 +14,7 @@ public class QuizEduQuestions extends Modules{
 	}
 	
 	public QuizEduQuestions(QuestionsEdu questionArray[], int maxScore, int score){
-		for (int i = 0; i < 10; i+=1) {
+		for (int i = 0; i < questionArray.length; i+=1) {
 			this.questionArray[i] = questionArray[i];
 		}
 		this.maxScore = maxScore;
@@ -34,7 +34,7 @@ public class QuizEduQuestions extends Modules{
 	}
 	
 	public void setQuestionArray(QuestionsEdu[] questionArray){
-		for (int i = 0; i < 10; i+=1) {
+		for (int i = 0; i < questionArray.length; i+=1) {
 			this.questionArray[i] = questionArray[i];
 		}
 	}
@@ -58,7 +58,7 @@ public class QuizEduQuestions extends Modules{
 	public String showResult(){
 		String tmp = "";
 		
-		for(int i=0 ; i<results.length;i+=1){
+		for(int i=0 ; i < results.length; i+=1){
 			tmp += "Attempt "+(i+1)+"\t:\t"+results[i].toString();
 		}
 		return tmp;
