@@ -1,12 +1,19 @@
 
 public class InitializeEduQuizes {
 	
-	public Modules modu[] = new Modules[2];
-	public QuestionsEdu[] questions;
+	private Modules modu[] = new Modules[2];
+	private QuestionsEdu[] questions;
 	
 	public InitializeEduQuizes() {
 
-		// Kidz Math
+		// Initialize all the educational quizzes
+		kidzMath();
+		
+		modu[1] = new QuizEduQuestions("Education", "Test Math", questions, 10, 0);
+	}
+	
+	public void kidzMath() {
+	
 		QuestionsEdu[] questions = new QuestionsEdu[10];
 		
 		for(int i = 0; i < 10; i+=1){
@@ -53,16 +60,19 @@ public class InitializeEduQuizes {
 		questions[9].setQuestionOption(new String[] {"1", "0", "9", "10"});
 		questions[9].setAnswer("B");
 		
-		modu[0] = new QuizEduQuestions("Education", "Kidz Math", questions, 10, 0);
-		modu[1] = new QuizEduQuestions("Education", "Test Math", questions, 10, 0);
+		this.modu[0] = new QuizEduQuestions("Education", "Kidz Math", questions, 10, 0);
 	}
 	
-	public Modules[] getModule() {
+	public Modules[] getModu() {
 		return modu;
 	}
 	
-	public Modules getModule(int i) {
+	public Modules getModu(int i) {
 		return modu[i];
+	}
+	
+	public void setModu(Modules[] modu) {
+		this.modu = modu;
 	}
 	
 }

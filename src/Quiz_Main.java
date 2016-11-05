@@ -60,8 +60,8 @@ public class Quiz_Main {
 		System.out.println("============================================");
 		System.out.println("Options \t\t\t input");
 		System.out.println("============================================");
-		for (int n = 0; n < eduQuizes.modu.length; n+=1) {
-			System.out.println(eduQuizes.getModule(n).getModuleName() +
+		for (int n = 0; n < eduQuizes.getModu().length; n+=1) {
+			System.out.println(eduQuizes.getModu(n).getModuleName() +
 					" \t\t\t  " + (n + 1));
 		}
 		System.out.println("============================================");
@@ -76,7 +76,7 @@ public class Quiz_Main {
 				menu();
 				break;
 			case 1: 
-				printQuestions(eduQuizes.getModule(0));
+				printQuestions(eduQuizes.getModu(0));
 				break;
 			default:
 				System.out.println("Invalid Input!");
@@ -87,7 +87,7 @@ public class Quiz_Main {
 	}
 	
 	public static void testMe() {
-		System.out.println(eduQuizes.modu[0].getModuleName());
+		System.out.println(eduQuizes.getModu(0).getModuleName());
 	}
 	
 	public static void printQuestions(Modules modu) {
