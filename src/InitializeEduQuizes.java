@@ -1,7 +1,7 @@
 
 public class InitializeEduQuizes {
 	
-	private Modules modu[] = new Modules[4];
+	private Modules modu[] = new Modules[5];
 	private QuestionsEdu[] questions;
 	
 	public InitializeEduQuizes() {
@@ -9,6 +9,9 @@ public class InitializeEduQuizes {
 		// Initialize all the educational quizzes
 		kidzMath();
 		blancTrivia();
+		Logics();
+		Chemistry();
+		AdvanceMaths();
 		
 	}
 	
@@ -227,6 +230,59 @@ public class InitializeEduQuizes {
 		
 		
 		this.modu[3] = new QuizEduQuestions("Education", "Chemistry", questions, 10, 0);
+	}
+	
+	public void AdvanceMaths() {
+		
+		QuestionsEdu[] questions = new QuestionsEdu[10];
+		
+		for(int i = 0; i < 10; i++){
+			questions[i] = new QuestionsEdu();
+		}
+		
+		questions[0].setQuestionName("a + a = b,b + a = b,what is b?");
+		questions[0].setQuestionOption(new String[] {"a", "b", "ab", "none of the above"});
+		questions[0].setAnswer("A");
+		
+		questions[1].setQuestionName("2kg of pure distiled water is poured into a tank assuming that every instance of 1 second 5cubic cetimeters of water spills, how much time to empty the tank?");
+		questions[1].setQuestionOption(new String[] {"400 seconds", "40 seconds", "the tank spillage will be a exponetial graph(it will not reach0)", "Errm..no clue"});
+		questions[1].setAnswer("A");
+
+		questions[2].setQuestionName("40 times of a number is equal to 190 plus itself, what is that number?");
+		questions[2].setQuestionOption(new String[] {"5", "10", "15", "20"});
+		questions[2].setAnswer("B");
+		
+		questions[3].setQuestionName("2n + 2m(2nm) equals...");
+		questions[3].setQuestionOption(new String[] {"6nm", "2n + 4nmm", "4nm + 4nm", "222nmm"});
+		questions[3].setAnswer("B");
+		
+		questions[4].setQuestionName("Lowering electron value of 8hz will create a distubance to hearing, if the speakers were 12 feet away, how much is the magnitude of the entire galaxy?");
+		questions[4].setQuestionOption(new String[] {"You will learn that in Quantum Physics", "4 to the power of 67billion light years", "God knows", "A googleplex"});
+		questions[4].setAnswer("D");
+		
+		questions[5].setQuestionName("Obtaining 45 from 45nm is called...");
+		questions[5].setQuestionOption(new String[] {"Solving", "Simplification", "Magnitudising", "Seperation"});
+		questions[5].setAnswer("C");
+		
+		questions[6].setQuestionName("If 2 + 2n = 10, what is n?");
+		questions[6].setQuestionOption(new String[] {"2", "4", "6", "5"});
+		questions[6].setAnswer("B");
+		
+		questions[7].setQuestionName("Advance Maths differes from maths in which aspect?");
+		questions[7].setQuestionOption(new String[] {"More relation and function", "Has the word advance", "More advance", "Only applicable to smart science stream students"});
+		questions[7].setAnswer("B");
+		
+		questions[8].setQuestionName("Nullyfing the addition of 100 to 400 means...");
+		questions[8].setQuestionOption(new String[] {"500", "450", "400", "0"});
+		questions[8].setAnswer("C");
+		
+		questions[9].setQuestionName("Spontaneous decay cause Alluminium to lose half of its mass every 12 minutes, how heavy is the alluminium if it were to be 600grams in 108 minutes");
+		questions[9].setQuestionOption(new String[] {"2.4kg", "7.2kg", "12.56kg", "36kg"});
+		questions[9].setAnswer("D");
+		
+		
+		
+		this.modu[4] = new QuizEduQuestions("Education", "AdvanceMaths", questions, 10, 0);
 	}
 	
 	
