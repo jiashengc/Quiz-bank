@@ -1,3 +1,5 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class Quiz_Main {
@@ -78,6 +80,9 @@ public class Quiz_Main {
 			case 1: 
 				printQuestions(eduQuizes.getModu(0));
 				break;
+			case 2:
+				printQuestions(eduQuizes.getModu(1));
+				break;
 			default:
 				System.out.println("Invalid Input!");
 				System.out.println("Please re-enter!");
@@ -94,8 +99,8 @@ public class Quiz_Main {
 		
 		int count = 0;
 		String userInput;
-		char[] changedInput = new char[10];
-		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+		char[] changedInput = new char[40];
+		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 		
 		System.out.println(modu.getModuleName());
 		
@@ -117,22 +122,34 @@ public class Quiz_Main {
 			
 			count +=1;
 			
-		} while (count <= 9);
+		} while (count < ((QuizEduQuestions)modu).questionArray.length);
 		
 		checkResults(changedInput, modu);
 	}
 	
 	public static void checkResults(char[] results, Modules modu) {
 		
+		// To make percentage look nice and clean
+		DecimalFormat df = new DecimalFormat("#.##");
+		df.setRoundingMode(RoundingMode.CEILING);
+		
 		int score = 0;
-		for (int i = 0; i < 10; i+=1) {
+		double percentageScore = 0.0;
+		String scoreString;
+		
+		for (int i = 0; i < ((QuizEduQuestions)modu).questionArray.length; i+=1) {
 			if (results[i] == ((QuizEduQuestions)modu).questionArray[i].getAnswer().charAt(0)) {
 				score +=1;
 			}
 		}
 		
-		System.out.println("\nResults: " + score + " / " + ((QuizEduQuestions)modu).getMaxScore() + "\n");
-		System.out.println("Returning to main menu...");
+		// Format the percentage score and turn it into string
+		percentageScore = ((double)(score) / ((QuizEduQuestions)modu).getMaxScore()) * 100;
+		scoreString = df.format(percentageScore);
+		
+		System.out.println("\nResults: " + score + " / " + ((QuizEduQuestions)modu).getMaxScore());
+		System.out.println("You got " + scoreString + "% of all questions correct!");
+		System.out.println("\n\nReturning to main menu...");
 		menu();
 		
 	}

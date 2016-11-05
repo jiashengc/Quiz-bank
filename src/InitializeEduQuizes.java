@@ -8,8 +8,8 @@ public class InitializeEduQuizes {
 
 		// Initialize all the educational quizzes
 		kidzMath();
+		blancTrivia();
 		
-		modu[1] = new QuizEduQuestions("Education", "Test Math", questions, 10, 0);
 	}
 	
 	public void kidzMath() {
@@ -61,6 +61,69 @@ public class InitializeEduQuizes {
 		questions[9].setAnswer("B");
 		
 		this.modu[0] = new QuizEduQuestions("Education", "Kidz Math", questions, 10, 0);
+	}
+	
+	public void blancTrivia() {
+		
+		QuestionsEdu[] questions = new QuestionsEdu[13];
+		
+		for(int i = 0; i < 13; i+=1){
+			questions[i] = new QuestionsEdu();
+		}
+		
+		questions[0].setQuestionName("Blanc is also known as?");
+		questions[0].setQuestionOption(new String[] {"Black Heart", "Purple Heart", "Green Heart", "White Heart", "Yellow Heart", "Iris Heart", "Blue Heart"});
+		questions[0].setAnswer("D");
+		
+		questions[1].setQuestionName("What weapon does Blanc uses?");
+		questions[1].setQuestionOption(new String[] {"War Hammer", "Rapier", "Sword", "Staff", "Dolls", "Cat Gloves", "Lance"});
+		questions[1].setAnswer("A");
+
+		questions[2].setQuestionName("What weapon does her HDD form uses?");
+		questions[2].setQuestionOption(new String[] {"Odachi", "Galient Sword", "Staff", "Lance", "Cat Gloves", "Rapier", "Axe/Maul"});
+		questions[2].setAnswer("G");
+		
+		questions[3].setQuestionName("How tall is Blanc?");
+		questions[3].setQuestionOption(new String[] {"146cm", "144cm", "163cm", "158cm"});
+		questions[3].setAnswer("B");
+		
+		questions[4].setQuestionName("How heavy is Blanc?");
+		questions[4].setQuestionOption(new String[] {"27kg", "28kg", "36kg", "38kg", "39kg", "40kg", "43kg", "48kg",});
+		questions[4].setAnswer("C");
+		
+		questions[5].setQuestionName("What are Blanc's sister(s) called?");
+		questions[5].setQuestionOption(new String[] {"Black Sister", "White Sister", "Purple Sister", "Green Sister", "Yellow Sister", "Iris Sister", "Blue Sister", "She has none"});
+		questions[5].setAnswer("B");
+		
+		questions[6].setQuestionName("What are Blanc's eye colors?");
+		questions[6].setQuestionOption(new String[] {"Blue", "Magenta", "Purple", "Red", "Dark Pink", "Orange", "Green", "Teal"});
+		questions[6].setAnswer("A");
+		
+		questions[7].setQuestionName("What are Blanc's eye colors in HDD form?");
+		questions[7].setQuestionOption(new String[] {"Blue", "Magenta", "Purple", "Red", "Dark Pink", "Orange", "Green", "Teal"});
+		questions[7].setAnswer("D");
+		
+		questions[8].setQuestionName("What's Blanc's hair colour?");
+		questions[8].setQuestionOption(new String[] {"Black", "Brown", "Purple", "Blonde", "Blue", "Green", "White"});
+		questions[8].setAnswer("B");
+		
+		questions[9].setQuestionName("What's Blanc's hair colour in HDD form?");
+		questions[9].setQuestionOption(new String[] {"Black", "Brown", "Purple", "Blonde", "Blue", "Green", "White"});
+		questions[9].setAnswer("E");
+		
+		questions[10].setQuestionName("Which console does Blanc represent?");
+		questions[10].setQuestionOption(new String[] {"SEGA Neptune", "Playstation 2", "Playstation Vita", "Nitendo Wii", "Nitendo DS", "XBOX 360"});
+		questions[10].setAnswer("D");
+		
+		questions[11].setQuestionName("What is Blanc's signature colour?");
+		questions[11].setQuestionOption(new String[] {"White", "Green", "Black", "Purple", "Blue", "Yellow", "Red"});
+		questions[11].setAnswer("A");
+		
+		questions[12].setQuestionName("What is Blanc's signature colour in Hyperdimension Neptunia Victory and ReBirth 3?");
+		questions[12].setQuestionOption(new String[] {"White", "Green", "Black", "Purple", "Blue", "Yellow", "Red"});
+		questions[12].setAnswer("G");
+		
+		this.modu[1] = new QuizEduQuestions("Trivia", "Blanc Trivia", questions, 13, 0);
 	}
 	
 	public Modules[] getModu() {
