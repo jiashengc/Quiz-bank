@@ -1,15 +1,15 @@
+import java.util.ArrayList;
 
 public class Modules {
 	private String moduleType;
 	private String moduleName;
-	public Result results[];
+	private ArrayList<Result> results = new ArrayList<Result>();
 	
 	public Modules(){
 		moduleType = "";
-		results = new Result[]{};
 	}
 	
-	public Modules(String moduleType, Result results[]){
+	public Modules(String moduleType, ArrayList<Result> results){
 		this.moduleType = moduleType;
 		this.results = results;
 	}
@@ -30,11 +30,11 @@ public class Modules {
 		this.moduleName = moduleName;
 	}
 	
-	public Result[] getResult(){
+	public ArrayList<Result> getResult(){
 		return results;
 	}
 	
-	public void setResult(Result results[]){
+	public void setResult(ArrayList<Result> results){
 		this.results = results;
 	}
 	

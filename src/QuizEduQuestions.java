@@ -58,8 +58,8 @@ public class QuizEduQuestions extends Modules{
 	public String showResult(){
 		String tmp = "";
 		
-		for(int i=0 ; i < results.length; i+=1){
-			tmp += "Attempt "+(i+1)+"\t:\t"+results[i].toString();
+		for(int i=0 ; i < super.getResult().size(); i+=1){
+			tmp += "Attempt "+(i+1)+"\t:\t"+ super.getResult().get(i).toString();
 		}
 		return tmp;
 	}

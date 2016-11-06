@@ -7,7 +7,8 @@ public class Quiz_Main {
 	public static final Scanner input = new Scanner(System.in);
 	public static InitializeEduQuizes eduQuizes = new InitializeEduQuizes();
 	public static InitializeFunQuizes funQuizes = new InitializeFunQuizes();
-	public int userScore = 0;
+	public static int userScore = 0;
+	public static int lastModule = 0;
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to House Mormont's Quiz Bank!");
@@ -17,7 +18,7 @@ public class Quiz_Main {
 	
 	public static void menu() {
 		
-		int userInput = 0;
+		String userInput = "";
 
 		System.out.println("");
 		System.out.println("Options \t\t\t Input");
@@ -28,21 +29,21 @@ public class Quiz_Main {
 		System.out.println("=====================================");
 		System.out.println("Input \"-1\" to EXIT.\n");
 		System.out.print("Input: ");
-		userInput = input.nextInt();
+		userInput = input.next();
 		System.out.println("\n");
 		
 		switch(userInput) {
-			case -1:
+			case "-1":
 				System.out.println("Goodbye! See you again!");
 				break;
-			case 1:
+			case "1":
 				eduMenu();
 				break;
-			case 2:
+			case "2":
 				funMenu();
 				break;
-			case 3: 
-				System.out.println("Results");
+			case "3": 
+				showResults();
 				break;
 			default:
 				System.out.println("Invalid Input!");
@@ -72,8 +73,6 @@ public class Quiz_Main {
 			
 			System.out.print("Input: ");
 			userInput = input.next();
-			System.out.println("\n");
-			
 			changedInput = Integer.parseInt(userInput);
 			
 			// Check if user input is legit
@@ -83,7 +82,8 @@ public class Quiz_Main {
 			}
 			// Check if user inputed number is within quizzes range
 			else if (changedInput >= 1 && changedInput <= eduQuizes.getModu().length) {
-				printEduQuestions(eduQuizes.getModu(changedInput - 1));
+				lastModule = changedInput - 1;
+				printEduQuestions(eduQuizes.getModu(lastModule));
 			}
 			else {
 				userInput = "Invalid";
@@ -109,16 +109,11 @@ public class Quiz_Main {
 		}
 		System.out.println("============================================");
 		System.out.println("Input \"-1\" to return to MENU.\n");
-		System.out.print("Input: ");
-		userInput = input.next();
-		System.out.println("\n");
 		
 		do {
 			
 			System.out.print("Input: ");
 			userInput = input.next();
-			System.out.println("\n");
-			
 			changedInput = Integer.parseInt(userInput);
 			
 			// Check if user input is legit
@@ -127,8 +122,9 @@ public class Quiz_Main {
 				menu();
 			}
 			// Check if user inputed number is within quizzes range
-			else if (changedInput >= 1 && changedInput <= funQuizes.getModu().length) {
-				printEduQuestions(funQuizes.getModu(changedInput - 1));
+			else if (changedInput > 0 /*&& changedInput <= funQuizes.getModu().length*/) {
+				lastModule = changedInput - 1;
+				printFunQuestions(funQuizes.getModu(lastModule));
 			}
 			else {
 				userInput = "Invalid";
@@ -212,6 +208,7 @@ public class Quiz_Main {
 		int score = 0;
 		double percentageScore = 0.0;
 		String scoreString;
+		Result result = new Result();
 		
 		// Check if answer is correct and raise the score by 1 if true
 		for (int i = 0; i < ((QuizEduQuestions)modu).questionArray.length; i+=1) {
@@ -223,6 +220,10 @@ public class Quiz_Main {
 		// Format the percentage score and turn it into string
 		percentageScore = ((double)(score) / ((QuizEduQuestions)modu).getMaxScore()) * 100;
 		scoreString = df.format(percentageScore);
+		
+		// Save the result in education quizes
+		result.setPercentageCorrect(scoreString);
+		eduQuizes.getModu(lastModule).getResult().add(result);
 		
 		System.out.println("\nResults: " + score + " / " + ((QuizEduQuestions)modu).getMaxScore());
 		System.out.println("You got " + scoreString + "% of all questions correct!");
@@ -236,12 +237,12 @@ public class Quiz_Main {
 		int max = 0, maxchar = 0;
 		int convertedNumbers[] = new int[results.length];
 		int[] charactersPoint = ((QuizFunQuestions)modu).getCharacterPoint();
+		Result result = new Result();
 		
 		// Get individual character keys to appraise
 		for (int i = 0; i < results.length; i+=1) {
 			char ch = results[i];
 			int pos = (int)ch - 65;
-			
 			convertedNumbers[i] = ((QuizFunQuestions)modu).questionArray[i].getQuestionKey(pos);
 		}
 		
@@ -259,10 +260,61 @@ public class Quiz_Main {
 			}
 		}
 		
+		// Save the result in fun quizes
+		result.setGivenCharacter(((QuizFunQuestions)modu).getCharacters(maxchar));
+		result.setGivenCharacterDesc(((QuizFunQuestions)modu).getCharacterDesc(maxchar));
+		funQuizes.getModu(lastModule).getResult().add(result);
+		
 		System.out.println("\nResult: " + ((QuizFunQuestions)modu).getCharacters(maxchar));
 		System.out.println("Description: " + ((QuizFunQuestions)modu).getCharacterDesc(maxchar));
 		System.out.println("\n\nReturning to main menu...");
 		
+		menu();
+	}
+	
+	public static void showResults() {
+		
+		String temp = "";
+		
+		// Print out all eduQuizes results
+		System.out.println("Educational Quizzes\n");
+		for (int i = 0; i < eduQuizes.getModu().length; i+=1) {
+			// Skip the quiz if there's no results
+			if (eduQuizes.getModu(i).getResult().size() < 1) {
+				continue;
+			}
+			
+			System.out.println(eduQuizes.getModu(i).getModuleName());
+			System.out.println("===================================");
+			
+			for (int n = 0; n < eduQuizes.getModu(i).getResult().size(); n+=1) {
+				System.out.println(
+						"Result: " + eduQuizes.getModu(i).getResult().get(n).getPercentageCorrect() + "%" +
+						"\n");	
+			}	
+		}
+		
+		// Print out all funQuizes results;
+		System.out.println("\n\nFun Quizzes\n");
+		for (int i = 0; i < funQuizes.getModu().length; i+=1) {
+			// Skip the quiz if there's no results
+			if (funQuizes.getModu(i).getResult().size() < 1) {
+				continue;
+			}
+			
+			System.out.println(funQuizes.getModu(i).getModuleName());
+			System.out.println("===================================");
+			
+			for (int n = 0; n < funQuizes.getModu(i).getResult().size(); n+=1) {
+				System.out.println(
+						"Result: " + funQuizes.getModu(i).getResult().get(n).getGivenCharacter() + 
+						"\nDescription: \n" + funQuizes.getModu(i).getResult().get(n).getGivenCharacterDesc() + 
+						"\n");	
+			}	
+		}
+		
+		System.out.print("Type anything to continue: ");
+		temp = input.next();
 		menu();
 	}
 	
