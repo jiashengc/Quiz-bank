@@ -86,7 +86,7 @@ public class InitializeFunQuizes {
 				"YES! I want to be the protagonist in all of them",
 				"I want to be, but I never get to be",
 				"Just being in one or a few is enough",
-				"No, because no one likes me anway"
+				"No, because no one likes me any way"
 		});
 		questions[8].setQuestionKey(new int[] {2, 1, 0, 3});
 		
