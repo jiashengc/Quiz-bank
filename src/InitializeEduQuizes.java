@@ -1,7 +1,7 @@
 
 public class InitializeEduQuizes {
 	
-	private Modules modu[] = new Modules[5];
+	private Modules modu[] = new Modules[6];
 	private QuestionsEdu[] questions;
 	
 	public InitializeEduQuizes() {
@@ -12,6 +12,7 @@ public class InitializeEduQuizes {
 		Logics();
 		Chemistry();
 		AdvanceMaths();
+		Humanitism();
 		
 	}
 	
@@ -282,6 +283,58 @@ public class InitializeEduQuizes {
 		
 		
 		this.modu[4] = new QuizEduQuestions("Education", "AdvanceMaths", questions, 10, 0);
+	}
+	
+	public void Humanitism() {
+		
+		QuestionsEdu[] questions = new QuestionsEdu[10];
+		
+		for(int i = 0; i < 10; i++){
+			questions[i] = new QuestionsEdu();
+		}
+		
+		questions[0].setQuestionName("You're reading this question you're a...");
+		questions[0].setQuestionOption(new String[] {"God", "Doll", "Human", "Atheist"});
+		questions[0].setAnswer("C");
+		
+		questions[1].setQuestionName("You're mom has 3 children, you are probally...");
+		questions[1].setQuestionOption(new String[] {"Her husband", "Her son", "Her Daughter", "Her Children"});
+		questions[1].setAnswer("A");
+
+		questions[2].setQuestionName("Jasmine has a little btother ,her bother's name is probally?");
+		questions[2].setQuestionOption(new String[] {"Muhammad Khan", "Tok Bo Phu", "Duncan", "No,18"});
+		questions[2].setAnswer("C");
+		
+		questions[3].setQuestionName("If you and your brother or sister copulated together, what would that make you?");
+		questions[3].setQuestionOption(new String[] {"A human", "A joke", "A dad", "A mom"});
+		questions[3].setAnswer("A");
+		
+		questions[4].setQuestionName("Humans evolved from apes, why do you have to learn maths?");
+		questions[4].setQuestionOption(new String[] {"My mom told me to", "Its compulsary", "God knows", "Maths = Life"});
+		questions[4].setAnswer("D");
+		
+		questions[5].setQuestionName("Your neighbour is robbed what is the right thing to do?");
+		questions[5].setQuestionOption(new String[] {"Rob the following neighbour", "Post of facebook to get likes", "Laugh at your neighbour", "Pee on your porch"});
+		questions[5].setAnswer("D");
+		
+		questions[6].setQuestionName("There is a gay couple in front of you, you should...");
+		questions[6].setQuestionOption(new String[] {"Shout 'GAY'", "Congratulate him for being weird", "Slap him and say 'you blind bruh'", "Walk away"});
+		questions[6].setAnswer("D");
+		
+		questions[7].setQuestionName("As humans we should ...");
+		questions[7].setQuestionOption(new String[] {"Help one another", "Stay introvert", "Talk with ourselfs", "Suicide"});
+		questions[7].setAnswer("A");
+		
+		questions[8].setQuestionName("Your sad you should...");
+		questions[8].setQuestionOption(new String[] {"Jump down a clift"});
+		questions[8].setAnswer("A");
+		
+		questions[9].setQuestionName("Why did she break up with me ?");
+		questions[9].setQuestionOption(new String[] {"She is a gold digger", "She thinks I am her ATM", "She found out she is ugly", "Girls right...haih"});
+		questions[9].setAnswer("D");
+		
+		
+		this.modu[5] = new QuizEduQuestions("Education", "Humanitism", questions, 10, 0);
 	}
 	
 	
