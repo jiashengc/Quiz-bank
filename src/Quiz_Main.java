@@ -54,7 +54,8 @@ public class Quiz_Main {
 	
 	public static void eduMenu() {
 		
-		int userInput = 0;
+		String userInput = "";
+		int changedInput = 0;
 		
 		System.out.println("Which educational quiz would you like to attempt?");
 		System.out.println("============================================");
@@ -66,32 +67,37 @@ public class Quiz_Main {
 		}
 		System.out.println("============================================");
 		System.out.println("Input \"-1\" to return to MENU.\n");
-		System.out.print("Input: ");
-		userInput = input.nextInt();
-		System.out.println("\n");
 		
-		switch(userInput) {
-			case -1:
+		do {
+			
+			System.out.print("Input: ");
+			userInput = input.next();
+			System.out.println("\n");
+			
+			changedInput = Integer.parseInt(userInput);
+			
+			// Check if user input is legit
+			if (userInput == "-1") {
 				System.out.println("Going back to menu...");
 				menu();
-				break;
-			case 1: 
-				printEduQuestions(eduQuizes.getModu(0));
-				break;
-			case 2:
-				printEduQuestions(eduQuizes.getModu(1));
-				break;
-			default:
-				System.out.println("Invalid Input!");
-				System.out.println("Please re-enter!");
-				eduMenu();
-		}
-		
+			}
+			// Check if user inputed number is within quizzes range
+			else if (changedInput >= 1 && changedInput <= eduQuizes.getModu().length) {
+				printEduQuestions(eduQuizes.getModu(changedInput - 1));
+			}
+			else {
+				userInput = "Invalid";
+				System.out.println("Your input is invalid, please try again.");
+			}
+					
+		} while(userInput == "Invalid");
+
 	}
 	
 	public static void funMenu() {
 		
-		int userInput = 0;
+		String userInput = "";
+		int changedInput = 0;
 		
 		System.out.println("Which fun quiz would you like to attempt?");
 		System.out.println("============================================");
@@ -104,22 +110,32 @@ public class Quiz_Main {
 		System.out.println("============================================");
 		System.out.println("Input \"-1\" to return to MENU.\n");
 		System.out.print("Input: ");
-		userInput = input.nextInt();
+		userInput = input.next();
 		System.out.println("\n");
 		
-		switch(userInput) {
-			case -1:
+		do {
+			
+			System.out.print("Input: ");
+			userInput = input.next();
+			System.out.println("\n");
+			
+			changedInput = Integer.parseInt(userInput);
+			
+			// Check if user input is legit
+			if (userInput == "-1") {
 				System.out.println("Going back to menu...");
 				menu();
-				break;
-			case 1: 
-				printFunQuestions(funQuizes.getModu(0));
-				break;
-			default:
-				System.out.println("Invalid Input!");
-				System.out.println("Please re-enter!");
-				funMenu();
-		}
+			}
+			// Check if user inputed number is within quizzes range
+			else if (changedInput >= 1 && changedInput <= funQuizes.getModu().length) {
+				printEduQuestions(funQuizes.getModu(changedInput - 1));
+			}
+			else {
+				userInput = "Invalid";
+				System.out.println("Your input is invalid, please try again.");
+			}
+					
+		} while(userInput == "Invalid");
 		
 	}
 	
@@ -197,6 +213,7 @@ public class Quiz_Main {
 		double percentageScore = 0.0;
 		String scoreString;
 		
+		// Check if answer is correct and raise the score by 1 if true
 		for (int i = 0; i < ((QuizEduQuestions)modu).questionArray.length; i+=1) {
 			if (results[i] == ((QuizEduQuestions)modu).questionArray[i].getAnswer().charAt(0)) {
 				score +=1;
@@ -220,6 +237,7 @@ public class Quiz_Main {
 		int convertedNumbers[] = new int[results.length];
 		int[] charactersPoint = ((QuizFunQuestions)modu).getCharacterPoint();
 		
+		// Get individual character keys to appraise
 		for (int i = 0; i < results.length; i+=1) {
 			char ch = results[i];
 			int pos = (int)ch - 65;
@@ -227,11 +245,13 @@ public class Quiz_Main {
 			convertedNumbers[i] = ((QuizFunQuestions)modu).questionArray[i].getQuestionKey(pos);
 		}
 		
+		// Increase character keys according to user inputs
 		for (int i = 0; i < convertedNumbers.length; i+=1) {
 			int n = convertedNumbers[i];
 			charactersPoint[n] +=1;
 		}
 		
+		// Check which character key has the highest value and assign it to max
 		for (int i = 0; i < charactersPoint.length; i+=1) {
 			if (charactersPoint[i] > max) {
 				max = charactersPoint[i];
