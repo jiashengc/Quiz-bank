@@ -338,7 +338,7 @@ public class InitializeEduQuizes {
 		this.modu[5] = new QuizEduQuestions("Education", "Humanitism", questions, 10, 0);
 	}
 	
-public void Trivia() {
+	public void Trivia() {
 		
 		QuestionsEdu[] questions = new QuestionsEdu[20];
 		
@@ -358,7 +358,7 @@ public void Trivia() {
 		questions[2].setQuestionOption(new String[] {"Dan Bilzerian", "Millionaire", "Billionaire", "Gates..Bill Gates."});
 		questions[2].setAnswer("C");
 		
-		questions[3].setQuestionName("Who said “That’s one small step for a man, one giant leap for mankind” on 20th July 1969?");
+		questions[3].setQuestionName("Who said Â“ThatÂ’s one small step for a man, one giant leap for mankindÂ” on 20th July 1969?");
 		questions[3].setQuestionOption(new String[] {"Neil ArmStrong", "Neil NotStrong", "Neil FingerStrong", "Neil SuperStrong"});
 		questions[3].setAnswer("A");
 		
