@@ -70,15 +70,21 @@ public class Quiz_Main {
 		System.out.println("Input \"-1\" to return to MENU.\n");
 		
 		do {
-			
 			System.out.print("Input: ");
 			userInput = input.next();
-			changedInput = Integer.parseInt(userInput);
+			
+			// To prevent error if userInput char/string
+			if (!userInput.matches("[a-zA-Z]+")) {
+				changedInput = Integer.parseInt(userInput);
+			}
+			else {
+				changedInput = -100;
+			}// end of if else statement
 			
 			// Check if user input is legit
-			if (userInput == "-1") {
+			if (changedInput == -1) { 
 				System.out.println("Going back to menu...");
-				menu();
+				menu(); // Back to menu if user enter sentinel value -1
 			}
 			// Check if user inputed number is within quizzes range
 			else if (changedInput >= 1 && changedInput <= eduQuizes.getModu().length) {
@@ -88,9 +94,9 @@ public class Quiz_Main {
 			else {
 				userInput = "Invalid";
 				System.out.println("Your input is invalid, please try again.");
-			}
+			}// end of if else statement
 					
-		} while(userInput == "Invalid");
+		} while(userInput == "Invalid"); // end of do while loop 
 
 	}
 	
@@ -114,30 +120,38 @@ public class Quiz_Main {
 			
 			System.out.print("Input: ");
 			userInput = input.next();
-			changedInput = Integer.parseInt(userInput);
+			
+			// To prevent error if userInput char/string
+			if (!userInput.matches("[a-zA-Z]+")) {
+				changedInput = Integer.parseInt(userInput);
+			}
+			else {
+				changedInput = -100;
+			} // end of if else statement
 			
 			// Check if user input is legit
 			if (userInput == "-1") {
 				System.out.println("Going back to menu...");
-				menu();
+				menu();  // Back to menu if user enter sentinel value -1
 			}
 			// Check if user inputed number is within quizzes range
-			else if (changedInput > 0 /*&& changedInput <= funQuizes.getModu().length*/) {
+			else if (changedInput > 0 && changedInput <= funQuizes.getModu().length) {
 				lastModule = changedInput - 1;
 				printFunQuestions(funQuizes.getModu(lastModule));
 			}
 			else {
 				userInput = "Invalid";
 				System.out.println("Your input is invalid, please try again.");
-			}
+			} // end of if else statement
 					
-		} while(userInput == "Invalid");
+		} while(userInput == "Invalid"); // end of do while loop
 		
 	}
 	
 	public static void printEduQuestions(Modules modu) {
 		
 		int count = 0;
+		int a = 0, i = 0;
 		String userInput;
 		char[] changedInput = new char[40];
 		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
@@ -145,7 +159,6 @@ public class Quiz_Main {
 		System.out.println(modu.getModuleName());
 		
 		do {
-			
 			System.out.println("");
 			System.out.println(((QuizEduQuestions)modu).questionArray[count].getQuestionName());
 			
@@ -157,12 +170,30 @@ public class Quiz_Main {
 			// Ask for user input and take only the first character, and turn it to upper case
 			System.out.print("\nYour Answer: ");
 			userInput = input.next();
-			userInput = userInput.toUpperCase();
-			changedInput[count] = userInput.charAt(0);
+			userInput = userInput.toUpperCase(); // convert user input to upper case
 			
+			while(a == 0){
+				while(i < temp.length){
+					if(userInput.charAt(0) == temp[i]){
+						changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
+						a++;
+						break; // break while loop
+					}// end of if statement
+					i++; 
+				} // end of while loop
+				if(a == 0){
+					System.out.println("Invalid input! Try again.");
+					System.out.print("\nYour Answer: ");
+					userInput = input.next();
+					userInput = userInput.toUpperCase(); // convert user input to upper case
+					i = 0;//resetting variable
+				} // end of if statement
+				
+			} // end of while loop
 			count +=1;
+			a = 0; // resetting variable
 			
-		} while (count < ((QuizEduQuestions)modu).questionArray.length);
+		} while (count < ((QuizEduQuestions)modu).questionArray.length); // end of do while loop
 		
 		checkEduResults(changedInput, modu);
 	}
@@ -170,6 +201,7 @@ public class Quiz_Main {
 	public static void printFunQuestions(Modules modu) {
 		
 		int count = 0;
+		int i = 0, a = 0;
 		String userInput;
 		char[] changedInput = new char[((QuizFunQuestions)modu).getQuestionArray().length];
 		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
@@ -190,9 +222,27 @@ public class Quiz_Main {
 			System.out.print("\nYour Answer: ");
 			userInput = input.next();
 			userInput = userInput.toUpperCase();
-			changedInput[count] = userInput.charAt(0);
 			
+			while(a == 0){
+				while(i < temp.length){
+					if(userInput.charAt(0) == temp[i]){
+						changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
+						a++;
+						break; // break while loop
+					}// end of if statement
+					i++; 
+				} // end of while loop
+				if(a == 0){
+					System.out.println("Invalid input! Try again.");
+					System.out.print("\nYour Answer: ");
+					userInput = input.next();
+					userInput = userInput.toUpperCase(); // convert user input to upper case
+					i = 0;//resetting variable
+				} // end of if statement
+				
+			} // end of while loop
 			count +=1;
+			a = 0; // resetting variable
 			
 		} while (count < ((QuizFunQuestions)modu).questionArray.length);
 		
