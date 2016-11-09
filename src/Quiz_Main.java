@@ -151,7 +151,8 @@ public class Quiz_Main {
 	public static void printEduQuestions(Modules modu) {
 		
 		int count = 0;
-		int a = 0, i = 0;
+		int i = 0;
+		boolean legitInput = false;
 		String userInput;
 		char[] changedInput = new char[40];
 		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
@@ -159,6 +160,10 @@ public class Quiz_Main {
 		System.out.println(modu.getModuleName());
 		
 		do {
+			// Return all values to their default state
+			legitInput = false; 
+			i = 0;
+			
 			System.out.println("");
 			System.out.println(((QuizEduQuestions)modu).questionArray[count].getQuestionName());
 			
@@ -172,26 +177,30 @@ public class Quiz_Main {
 			userInput = input.next();
 			userInput = userInput.toUpperCase(); // convert user input to upper case
 			
-			while(a == 0){
-				while(i < temp.length){
+			while(!legitInput){
+				
+				// Go through the array of valid inputs
+				while(i < ((QuizEduQuestions)modu).questionArray[count].getQuestionOption().length){
 					if(userInput.charAt(0) == temp[i]){
 						changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
-						a++;
+						legitInput = true;
 						break; // break while loop
 					}// end of if statement
-					i++; 
+					i+=1; 
 				} // end of while loop
-				if(a == 0){
+				
+				// If input is not legit, prompt user the answer again
+				if(!legitInput){
 					System.out.println("Invalid input! Try again.");
 					System.out.print("\nYour Answer: ");
 					userInput = input.next();
-					userInput = userInput.toUpperCase(); // convert user input to upper case
-					i = 0;//resetting variable
+					userInput = userInput.toUpperCase();
+					i = 0; // resetting variable
 				} // end of if statement
 				
 			} // end of while loop
+			
 			count +=1;
-			a = 0; // resetting variable
 			
 		} while (count < ((QuizEduQuestions)modu).questionArray.length); // end of do while loop
 		
@@ -201,7 +210,8 @@ public class Quiz_Main {
 	public static void printFunQuestions(Modules modu) {
 		
 		int count = 0;
-		int i = 0, a = 0;
+		int i = 0;
+		boolean legitInput = false;
 		String userInput;
 		char[] changedInput = new char[((QuizFunQuestions)modu).getQuestionArray().length];
 		char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
@@ -223,26 +233,30 @@ public class Quiz_Main {
 			userInput = input.next();
 			userInput = userInput.toUpperCase();
 			
-			while(a == 0){
-				while(i < temp.length){
+			while(!legitInput){
+				
+				// Go through the array of valid inputs
+				while(i < ((QuizFunQuestions)modu).questionArray[count].getQuestionOption().length){
 					if(userInput.charAt(0) == temp[i]){
 						changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
-						a++;
+						legitInput = true;
 						break; // break while loop
 					}// end of if statement
-					i++; 
+					i+=1; 
 				} // end of while loop
-				if(a == 0){
+				
+				// If input is not legit, prompt user the answer again
+				if(!legitInput){
 					System.out.println("Invalid input! Try again.");
 					System.out.print("\nYour Answer: ");
 					userInput = input.next();
-					userInput = userInput.toUpperCase(); // convert user input to upper case
-					i = 0;//resetting variable
+					userInput = userInput.toUpperCase();
+					i = 0; // resetting variable
 				} // end of if statement
 				
 			} // end of while loop
+			
 			count +=1;
-			a = 0; // resetting variable
 			
 		} while (count < ((QuizFunQuestions)modu).questionArray.length);
 		
