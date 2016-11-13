@@ -1,7 +1,7 @@
 
 public class InitializeEduQuizes {
 	
-	private Modules modu[] = new Modules[7];
+	private Modules modu[] = new Modules[8];
 	private QuestionsEdu[] questions;
 	
 	public InitializeEduQuizes() {
@@ -14,6 +14,7 @@ public class InitializeEduQuizes {
 		AdvanceMaths();
 		Humanitism();
 		Trivia();
+		ComputerQuiz();
 		
 	}
 	
@@ -358,7 +359,7 @@ public class InitializeEduQuizes {
 		questions[2].setQuestionOption(new String[] {"Dan Bilzerian", "Millionaire", "Billionaire", "Gates..Bill Gates."});
 		questions[2].setAnswer("C");
 		
-		questions[3].setQuestionName("Who said Thats one small step for a man, one giant leap for mankind on 20th July 1969?");
+		questions[3].setQuestionName("Who said 'Thats one small step for a man, one giant leap for mankind' on 20th July 1969?");
 		questions[3].setQuestionOption(new String[] {"Neil ArmStrong", "Neil NotStrong", "Neil FingerStrong", "Neil SuperStrong"});
 		questions[3].setAnswer("A");
 		
@@ -414,7 +415,7 @@ public class InitializeEduQuizes {
 		questions[16].setQuestionOption(new String[] {"Dioxinuclei acid", "Deoxyribonucleic acid", "Deoxinuclic acid", "Dichloronide acid"});
 		questions[16].setAnswer("B");
 		
-		questions[17].setQuestionName("In computer science, what does "GUI" stand for?");
+		questions[17].setQuestionName("In computer science, what does 'GUI' stand for?");
 		questions[17].setQuestionOption(new String[] {"Graphical Unique Interface", "Graphical Ultra Interface", "Graphical Uni Interface", "Graphical User Interface"});
 		questions[17].setAnswer("D");
 		
@@ -430,6 +431,58 @@ public class InitializeEduQuizes {
 		
 		
 		this.modu[6] = new QuizEduQuestions("Education", "Trivia", questions, 20, 0);
+	}
+	
+public void ComputerQuiz() {
+		
+		QuestionsEdu[] questions = new QuestionsEdu[10];
+		
+		for(int i = 0; i < 10; i++){
+			questions[i] = new QuestionsEdu();
+		}
+		
+		questions[0].setQuestionName("Which of the following memories is an optical memory?");
+		questions[0].setQuestionOption(new String[] {"Floppy Disk", "Bubble Memories", "CD�ROM", "Core Memories"});
+		questions[0].setAnswer("C");
+		
+		questions[1].setQuestionName("DNS refers to");
+		questions[1].setQuestionOption(new String[] {"Digital Network Service", "Data Number Sequence", "Domain Name System", "Disk Numbering System"});
+		questions[1].setAnswer("A");
+
+		questions[2].setQuestionName("	Java was originally invented by");
+		questions[2].setQuestionOption(new String[] {"Oracle", "Microsoft", "Sun", "Apple"});
+		questions[2].setAnswer("C");
+		
+		questions[3].setQuestionName("The unit of speed used for super computer is");
+		questions[3].setQuestionOption(new String[] {"GELOPS", "MELOPS", "TELOPS", "CELOPS"});
+		questions[3].setAnswer("A");
+		
+		questions[4].setQuestionName("	Whose trademark is the operating system UNIX?");
+		questions[4].setQuestionOption(new String[] {"Motorola", "Microsoft", "AshtonTate", "BELL Laboratories"});
+		questions[4].setAnswer("D");
+		
+		questions[5].setQuestionName("The first mechanical computer designed by Charles Babbage was called");
+		questions[5].setQuestionOption(new String[] {"Processor", "Calculator", "Abacus", "Analytical Engine"});
+		questions[5].setAnswer("D");
+		
+		questions[6].setQuestionName("Which of the following is the most powerful type of computer?");
+		questions[6].setQuestionOption(new String[] {"Super microcomputer", "Super conductor", "Megaframe", " Super computer"});
+		questions[6].setAnswer("D");
+		
+		questions[7].setQuestionName("Which gate is a single integrated circuit?");
+		questions[7].setQuestionOption(new String[] {"Gate", "Mother Board", "Chip", "CPU"});
+		questions[7].setAnswer("A");
+		
+		questions[8].setQuestionName("C is");
+		questions[8].setQuestionOption(new String[] {" A third generation high level language", "A machine language", "An assembly language", "All of the above"});
+		questions[8].setAnswer("A");
+		
+		questions[9].setQuestionName("	Web pages are written using");
+		questions[9].setQuestionOption(new String[] {"URL", "FTP", "HTTP", "HTML"});
+		questions[9].setAnswer("D");
+		
+		
+		this.modu[7] = new QuizEduQuestions("Education", "ComputerQuiz", questions, 10, 0);
 	}
 	
 	
