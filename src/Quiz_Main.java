@@ -178,11 +178,9 @@ public class Quiz_Main {
 			userInput = userInput.toUpperCase(); // convert user input to upper case
 			
 			while(!legitInput){
-				
 				// Go through the array of valid inputs
 				while(i < ((QuizEduQuestions)modu).questionArray[count].getQuestionOption().length){
 					if(userInput.charAt(0) == temp[i]){
-						changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
 						legitInput = true;
 						break; // break while loop
 					}// end of if statement
@@ -200,6 +198,7 @@ public class Quiz_Main {
 				
 			} // end of while loop
 			
+			changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
 			count +=1;
 			
 		} while (count < ((QuizEduQuestions)modu).questionArray.length); // end of do while loop
@@ -238,7 +237,6 @@ public class Quiz_Main {
 				// Go through the array of valid inputs
 				while(i < ((QuizFunQuestions)modu).questionArray[count].getQuestionOption().length){
 					if(userInput.charAt(0) == temp[i]){
-						changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
 						legitInput = true;
 						break; // break while loop
 					}// end of if statement
@@ -256,6 +254,7 @@ public class Quiz_Main {
 				
 			} // end of while loop
 			
+			changedInput[count] = userInput.charAt(0); // store the 1st char of input in an array
 			count +=1;
 			
 		} while (count < ((QuizFunQuestions)modu).questionArray.length);
@@ -306,7 +305,9 @@ public class Quiz_Main {
 		// Get individual character keys to appraise
 		for (int i = 0; i < results.length; i+=1) {
 			char ch = results[i];
-			int pos = (int)ch - 65;
+			int pos = (int)ch;
+			pos -= 65;
+			System.out.println(pos);
 			convertedNumbers[i] = ((QuizFunQuestions)modu).questionArray[i].getQuestionKey(pos);
 		}
 		

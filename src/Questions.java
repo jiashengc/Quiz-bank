@@ -1,5 +1,5 @@
 
-public class Questions {
+public abstract class Questions {
 	private String questionName;
 	private String questionOption[];
 	

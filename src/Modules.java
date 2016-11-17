@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Modules {
+public abstract  class Modules {
 	private String moduleType;
 	private String moduleName;
 	private ArrayList<Result> results = new ArrayList<Result>();

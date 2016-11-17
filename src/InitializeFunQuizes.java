@@ -8,6 +8,7 @@ public class InitializeFunQuizes {
 		
 		// Initialize all the fun quizzes
 		hyperdimensionCharacter();
+		kingdomHeartsCharacter();
 		
 	}
 	
@@ -18,7 +19,7 @@ public class InitializeFunQuizes {
 		String[] characterDesc = new String[4];
 		int[] charactersPoint = {0, 0, 0, 0};
 		
-		for (int i = 0; i < 9; i+=1) {
+		for (int i = 0; i < questions.length; i+=1) {
 			questions[i] = new QuestionsFun(4);
 		}
 		
@@ -91,6 +92,21 @@ public class InitializeFunQuizes {
 		questions[8].setQuestionKey(new int[] {2, 1, 0, 3});
 		
 		this.modu[0] = new QuizFunQuestions("Fun", "Hyperdimension Character", questions, characters, characterDesc, charactersPoint);
+	}
+	
+	public void kingdomHeartsCharacter() {
+		QuestionsFun[] questions = new QuestionsFun[9];
+		String[] characters = new String[4];
+		String[] characterDesc = new String[4];
+		int[] charactersPoint = {0,0,0,0};
+		
+		for(int i =  0 ; i < questions.length ; i+=1 ){
+			questions[i] = new QuestionsFun(4);
+		}
+		
+		//Define all characters
+		characters[0] = "Sora";
+		characters[1] = "";
 	}
 	
 	public Modules[] getModu() {

@@ -1,11 +1,11 @@
 
 public class InitializeEduQuizes {
 	
-	private Modules modu[] = new Modules[8];
+	private Modules modu[] = new Modules[6];
 	private QuestionsEdu[] questions;
 	
 	public InitializeEduQuizes() {
-
+		
 		// Initialize all the educational quizzes
 		kidzMath();
 		blancTrivia();
@@ -13,8 +13,6 @@ public class InitializeEduQuizes {
 		Chemistry();
 		AdvanceMaths();
 		Humanitism();
-		Trivia();
-		ComputerQuiz();
 		
 	}
 	
@@ -337,152 +335,6 @@ public class InitializeEduQuizes {
 		
 		
 		this.modu[5] = new QuizEduQuestions("Education", "Humanitism", questions, 10, 0);
-	}
-	
-	public void Trivia() {
-		
-		QuestionsEdu[] questions = new QuestionsEdu[20];
-		
-		for(int i = 0; i < 20; i++){
-			questions[i] = new QuestionsEdu();
-		}
-		
-		questions[0].setQuestionName("What is it that prevents the earth's atmosphere from drifting away into space?");
-		questions[0].setQuestionOption(new String[] {"God", "HyperElectro Rays", "Gravity", "Aliens"});
-		questions[0].setAnswer("C");
-		
-		questions[1].setQuestionName("How long does it take for the Earth to spin once on its axis?");
-		questions[1].setQuestionOption(new String[] {"One day", "12 hours", "One week", "One month"});
-		questions[1].setAnswer("A");
-
-		questions[2].setQuestionName("What is the term for a person with assets of over 1,000 million dollars?");
-		questions[2].setQuestionOption(new String[] {"Dan Bilzerian", "Millionaire", "Billionaire", "Gates..Bill Gates."});
-		questions[2].setAnswer("C");
-		
-		questions[3].setQuestionName("Who said 'Thats one small step for a man, one giant leap for mankind' on 20th July 1969?");
-		questions[3].setQuestionOption(new String[] {"Neil ArmStrong", "Neil NotStrong", "Neil FingerStrong", "Neil SuperStrong"});
-		questions[3].setAnswer("A");
-		
-		questions[4].setQuestionName("What is the surname of the Hungarian inventor whose multicolored, rotatable cube became a world cult?");
-		questions[4].setQuestionOption(new String[] {"Lubrik", "Kubrik", "Dubrik", "Rubik"});
-		questions[4].setAnswer("D");
-		
-		questions[5].setQuestionName("What is the term used to denote the unauthorized and illegal accessing of computer programs, often with criminal intent?");
-		questions[5].setQuestionOption(new String[] {"Coding", "Playing", "Spying", "Hacking"});
-		questions[5].setAnswer("D");
-		
-		questions[6].setQuestionName("What boxing champion was said to float like a butterfly? ");
-		questions[6].setQuestionOption(new String[] {"Muhammad Ramzan", "Muhammad Mamat", "Muhammad Nikson", "Muhammad Ali"});
-		questions[6].setAnswer("D");
-		
-		questions[7].setQuestionName("With what type of egg can you make over 11 average sized omelet's? ");
-		questions[7].setQuestionOption(new String[] {"Ostrich Egg", "Snake Egg", "Chicken Egg", "Dinosaur Egg"});
-		questions[7].setAnswer("A");
-		
-		questions[8].setQuestionName("Mosaic was the name of the first what? ");
-		questions[8].setQuestionOption(new String[] {"Web Browser", "Stone", "Person", "Animal"});
-		questions[8].setAnswer("A");
-		
-		questions[9].setQuestionName("Where did the pineapple plant come from originally?");
-		questions[9].setQuestionOption(new String[] {"Spain", "Jordan", "Armenia", "South America"});
-		questions[9].setAnswer("D");
-		
-		questions[10].setQuestionName("What is the fastest fish in the ocean?");
-		questions[10].setQuestionOption(new String[] {"Dolphin", "Whale Shark", "Sailfish", "Dory"});
-		questions[10].setAnswer("C");
-		
-		questions[11].setQuestionName("Which animal has the most legs");
-		questions[11].setQuestionOption(new String[] {"Centipide", "Millipede", "Spiders", "Octopus"});
-		questions[11].setAnswer("B");
-		
-		questions[12].setQuestionName("Porsche is a brand of car that originated in what country?");
-		questions[12].setQuestionOption(new String[] {"United States", "Germany", "Korea", "United Kingdom"});
-		questions[12].setAnswer("B");
-		
-		questions[13].setQuestionName("Who was the first austronaut to visit space twice?");
-		questions[13].setQuestionOption(new String[] {"Matt Damon", "Rowan Atkinson", "Neil Armstrong", "Gus Grissom"});
-		questions[13].setAnswer("D");
-		
-		questions[14].setQuestionName("What is the tallest building in the world?");
-		questions[14].setQuestionOption(new String[] {"Petronas Twin Tower", "The Burj Khalifa", "Taipei 101", "The Eye"});
-		questions[14].setAnswer("B");
-		
-		questions[15].setQuestionName("What is the largest internal organ of the human body?");
-		questions[15].setQuestionOption(new String[] {"Lungs", "Liver", "Kidney", "Large Intestine"});
-		questions[15].setAnswer("B");
-		
-		questions[16].setQuestionName("What does the acronym DNA stand for?");
-		questions[16].setQuestionOption(new String[] {"Dioxinuclei acid", "Deoxyribonucleic acid", "Deoxinuclic acid", "Dichloronide acid"});
-		questions[16].setAnswer("B");
-		
-		questions[17].setQuestionName("In computer science, what does 'GUI' stand for?");
-		questions[17].setQuestionOption(new String[] {"Graphical Unique Interface", "Graphical Ultra Interface", "Graphical Uni Interface", "Graphical User Interface"});
-		questions[17].setAnswer("D");
-		
-		questions[18].setQuestionName("What planet in our solar system has most gravity?");
-		questions[18].setQuestionOption(new String[] {"Saturn", "Venus", "Mars", "Jupiter"});
-		questions[18].setAnswer("D");
-		
-		questions[19].setQuestionName("What is the hottest planet in our solar system?");
-		questions[19].setQuestionOption(new String[] {"Venus", "Mars", "Jupiter", "Jupiter"});
-		questions[19].setAnswer("A");
-		
-		
-		
-		
-		this.modu[6] = new QuizEduQuestions("Education", "Trivia", questions, 20, 0);
-	}
-	
-public void ComputerQuiz() {
-		
-		QuestionsEdu[] questions = new QuestionsEdu[10];
-		
-		for(int i = 0; i < 10; i++){
-			questions[i] = new QuestionsEdu();
-		}
-		
-		questions[0].setQuestionName("Which of the following memories is an optical memory?");
-		questions[0].setQuestionOption(new String[] {"Floppy Disk", "Bubble Memories", "CD–ROM", "Core Memories"});
-		questions[0].setAnswer("C");
-		
-		questions[1].setQuestionName("DNS refers to");
-		questions[1].setQuestionOption(new String[] {"Digital Network Service", "Data Number Sequence", "Domain Name System", "Disk Numbering System"});
-		questions[1].setAnswer("A");
-
-		questions[2].setQuestionName("	Java was originally invented by");
-		questions[2].setQuestionOption(new String[] {"Oracle", "Microsoft", "Sun", "Apple"});
-		questions[2].setAnswer("C");
-		
-		questions[3].setQuestionName("The unit of speed used for super computer is");
-		questions[3].setQuestionOption(new String[] {"GELOPS", "MELOPS", "TELOPS", "CELOPS"});
-		questions[3].setAnswer("A");
-		
-		questions[4].setQuestionName("	Whose trademark is the operating system UNIX?");
-		questions[4].setQuestionOption(new String[] {"Motorola", "Microsoft", "AshtonTate", "BELL Laboratories"});
-		questions[4].setAnswer("D");
-		
-		questions[5].setQuestionName("The first mechanical computer designed by Charles Babbage was called");
-		questions[5].setQuestionOption(new String[] {"Processor", "Calculator", "Abacus", "Analytical Engine"});
-		questions[5].setAnswer("D");
-		
-		questions[6].setQuestionName("Which of the following is the most powerful type of computer?");
-		questions[6].setQuestionOption(new String[] {"Super microcomputer", "Super conductor", "Megaframe", " Super computer"});
-		questions[6].setAnswer("D");
-		
-		questions[7].setQuestionName("Which gate is a single integrated circuit?");
-		questions[7].setQuestionOption(new String[] {"Gate", "Mother Board", "Chip", "CPU"});
-		questions[7].setAnswer("A");
-		
-		questions[8].setQuestionName("C is");
-		questions[8].setQuestionOption(new String[] {" A third generation high level language", "A machine language", "An assembly language", "All of the above"});
-		questions[8].setAnswer("A");
-		
-		questions[9].setQuestionName("	Web pages are written using");
-		questions[9].setQuestionOption(new String[] {"URL", "FTP", "HTTP", "HTML"});
-		questions[9].setAnswer("D");
-		
-		
-		this.modu[7] = new QuizEduQuestions("Education", "ComputerQuiz", questions, 10, 0);
 	}
 	
 	
