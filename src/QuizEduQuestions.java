@@ -65,9 +65,18 @@ public class QuizEduQuestions extends Modules{
 		return tmp;
 	}
 	
+	public static void showAnswer(Modules modu) {
+		int count = 0;
+		for(int i = 0 ; i < ((QuizEduQuestions)modu).questionArray.length; i++){
+			System.out.print(count+1 +".  ");
+			System.out.println(((QuizEduQuestions)modu).questionArray[i].getAnswer());
+			count++;
+		}
+	}
+	
 	public void showAnswer(){
 		
-		for(int i = 0; i < modu.length; i++){
+		for(int i = 0; i < questionArray.length; i++){
 			System.out.println(i+1+" . "+questionArray[i].getAnswer());
 		}
 	}

@@ -1,6 +1,7 @@
 
 public class QuizFunQuestions extends Modules {
 	public QuestionsFun questionArray[];
+	private Modules modu[] = new Modules[1];
 	private String characters[];
 	private String characterDesc[];
 	private int charactersPoint[];
@@ -19,8 +20,51 @@ public class QuizFunQuestions extends Modules {
 		}
 	}
 	
-	public void showAnswer(){
+	public static void showAnswer(Modules modu) {
+		int count = 0;
+		System.out.println("If u want to be");
+		System.out.println("\nBlanc (1 = A, 2 = B, 3 = C, 4 = D)");
+		System.out.println("=====================================");
+		
+		for(int i = 0 ; i < ((QuizFunQuestions)modu).questionArray.length; i++){
+			System.out.print(count+1 +".  ");
+			System.out.println((((QuizFunQuestions)modu).questionArray[i].getQuestionKey(0)) + 1);
+			count++;
+		}
+		
+		System.out.println("\nNoire (1 = A, 2 = B, 3 = C, 4 = D)");
+		System.out.println("=====================================");
+		count = 0;
+		for(int i = 0 ; i < ((QuizFunQuestions)modu).questionArray.length; i++){
+			System.out.print(count+1 +".  ");
+			System.out.println((((QuizFunQuestions)modu).questionArray[i].getQuestionKey(1)) + 1);
+			count++;
+		}
 			
+			System.out.println("\nNeptune (1 = A, 2 = B, 3 = C, 4 = D)");
+			System.out.println("=====================================");
+			count = 0;
+		for(int i = 0 ; i < ((QuizFunQuestions)modu).questionArray.length; i++){
+			System.out.print(count+1 +".  ");
+			System.out.println((((QuizFunQuestions)modu).questionArray[i].getQuestionKey(2)) + 1);
+			count++;
+		}
+
+			System.out.println("\nVert (1 = A, 2 = B, 3 = C, 4 = D)");
+			System.out.println("=====================================");
+			count = 0;
+		for(int i = 0 ; i < ((QuizFunQuestions)modu).questionArray.length; i++){
+			System.out.print(count+1 +".  ");
+			System.out.println((((QuizFunQuestions)modu).questionArray[i].getQuestionKey(3)) + 1);
+			count++;
+		}
+		count = 0;
+}
+	
+	public void showAnswer(){
+		for(int i = 0; i < modu.length; i++){
+			System.out.println(i+1+" . "+questionArray[i].getQuestionKey());
+		}
 	}
 	
 	public QuizFunQuestions(String moduleType, String moduleName, QuestionsFun questionArray[], String characters[], String characterDesc[], int charactersPoint[]) {
@@ -84,8 +128,6 @@ public class QuizFunQuestions extends Modules {
 
 	public void setCharacterPoint(int charactersPoint[]) {
 		this.charactersPoint = charactersPoint;
-	}
-	
-	
+	}	
 	
 }

@@ -22,7 +22,8 @@ public class Quiz_Main {
 
 		System.out.println("");
 		System.out.println("Options \t\t\t Input");
-		System.out.println("=====================================");
+
+
 		System.out.println("Education Quizes \t\t   1");
 		System.out.println("Fun Quizes \t\t\t   2");
 		System.out.println("Results \t\t\t   3");
@@ -198,6 +199,10 @@ public class Quiz_Main {
 				lastModule = changedInput - 1;
 				printEduAnswer(eduQuizes.getModu(lastModule));
 			}
+			else if(changedInput > eduQuizes.getModu().length){
+				lastModule = (changedInput - eduQuizes.getModu().length) - 1;
+				printFunKey(funQuizes.getModu(lastModule));
+			}
 			else {
 				userInput = "Invalid";
 				System.out.println("Your input is invalid, please try again.");
@@ -207,13 +212,13 @@ public class Quiz_Main {
 		
 	}
 	
+	public static void printFunKey(Modules modu){
+		QuizFunQuestions.showAnswer(modu);
+	}
+	
 	public static void printEduAnswer(Modules modu) {
-		int count = 0;
-		for(int i = 0 ; i < ((QuizEduQuestions)modu).questionArray.length; i++){
-			System.out.print(count+1 +".  ");
-			System.out.println(((QuizEduQuestions)modu).questionArray[i].getAnswer());
-			count++;
-		}
+		
+		QuizEduQuestions.showAnswer(modu);
 	}
 	
 	public static void printEduQuestions(Modules modu) {
