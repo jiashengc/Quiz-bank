@@ -26,6 +26,7 @@ public class Quiz_Main {
 		System.out.println("Education Quizes \t\t   1");
 		System.out.println("Fun Quizes \t\t\t   2");
 		System.out.println("Results \t\t\t   3");
+		System.out.println("Show Answer \t\t\t   4");
 		System.out.println("=====================================");
 		System.out.println("Input \"-1\" to EXIT.\n");
 		System.out.print("Input: ");
@@ -45,6 +46,9 @@ public class Quiz_Main {
 			case "3": 
 				showResults();
 				break;
+			case "4":
+				answerMenu();
+				break;
 			default:
 				System.out.println("Invalid Input!");
 				System.out.println("Please re-enter!");
@@ -52,6 +56,7 @@ public class Quiz_Main {
 		}
 		
 	}
+	
 	
 	public static void eduMenu() {
 		
@@ -146,6 +151,69 @@ public class Quiz_Main {
 					
 		} while(userInput == "Invalid"); // end of do while loop
 		
+	}
+	
+	public static void answerMenu(){
+		int count = 0, changedInput = 0;
+		String userInput = "";
+		
+		System.out.println("Select the question to show answer");
+		System.out.println("Edu Questions");
+		System.out.println("============================================");
+		System.out.println("Input \t\t\t Quesiton");
+		System.out.println("============================================");
+		for(int i = 0; i < eduQuizes.getModu().length;i++){
+			System.out.println("  "+(count+1) +" \t\t\t" +eduQuizes.getModu(i).getModuleName() );
+			count+=1;
+		}
+		
+		System.out.println("\nFun Questions");
+		System.out.println("============================================");
+		System.out.println("Input \t\t\t Quesiton");
+		System.out.println("============================================");
+		for (int j = 0; j < funQuizes.getModu().length; j+=1) {
+			System.out.println("  "+(count+1) +" \t\t\t" +funQuizes.getModu(j).getModuleName() );
+			count+=1;
+		}
+		
+		do {
+			System.out.print("Input: ");
+			userInput = input.next();
+			
+			// To prevent error if userInput char/string
+			if (!userInput.matches("[a-zA-Z]+")) {
+				changedInput = Integer.parseInt(userInput);
+			}
+			else {
+				changedInput = -100;
+			} // end of if else statement
+			
+			// Check if user input is legit
+			if (userInput == "-1") {
+				System.out.println("Going back to menu...");
+				menu();  // Back to menu if user enter sentinel value -1
+			}
+			// Check if user inputed number is within quizzes range
+			else if (changedInput > 0 && changedInput <= eduQuizes.getModu().length) {
+				lastModule = changedInput - 1;
+				printEduAnswer(eduQuizes.getModu(lastModule));
+			}
+			else {
+				userInput = "Invalid";
+				System.out.println("Your input is invalid, please try again.");
+			} // end of if else statement
+					
+		} while(userInput == "Invalid"); // end of do while loop
+		
+	}
+	
+	public static void printEduAnswer(Modules modu) {
+		int count = 0;
+		for(int i = 0 ; i < ((QuizEduQuestions)modu).questionArray.length; i++){
+			System.out.print(count+1 +".  ");
+			System.out.println(((QuizEduQuestions)modu).questionArray[i].getAnswer());
+			count++;
+		}
 	}
 	
 	public static void printEduQuestions(Modules modu) {

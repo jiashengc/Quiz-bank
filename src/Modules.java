@@ -41,4 +41,6 @@ public abstract  class Modules {
 	public String toString(){
 		return "Module Type\t:\t"+moduleType;
 	}
+	
+	public abstract void showAnswer();
 }

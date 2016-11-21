@@ -1,6 +1,7 @@
 
 public class QuizEduQuestions extends Modules{
 	public QuestionsEdu questionArray[];
+	private Modules modu[] = new Modules[6];
 	private int maxScore;
 	private int score;
 	
@@ -62,6 +63,13 @@ public class QuizEduQuestions extends Modules{
 			tmp += "Attempt "+(i+1)+"\t:\t"+ super.getResult().get(i).toString();
 		}
 		return tmp;
+	}
+	
+	public void showAnswer(){
+		
+		for(int i = 0; i < modu.length; i++){
+			System.out.println(i+1+" . "+questionArray[i].getAnswer());
+		}
 	}
 	
 	public String toString(){

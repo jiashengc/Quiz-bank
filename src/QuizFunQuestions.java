@@ -19,6 +19,10 @@ public class QuizFunQuestions extends Modules {
 		}
 	}
 	
+	public void showAnswer(){
+			
+	}
+	
 	public QuizFunQuestions(String moduleType, String moduleName, QuestionsFun questionArray[], String characters[], String characterDesc[], int charactersPoint[]) {
 		this.setModuleType(moduleType);
 		this.setModuleName(moduleName);
