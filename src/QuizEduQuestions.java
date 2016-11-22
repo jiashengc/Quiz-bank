@@ -75,9 +75,8 @@ public class QuizEduQuestions extends Modules{
 	}
 	
 	public void showAnswer(){
-		
 		for(int i = 0; i < questionArray.length; i++){
-			System.out.println(i+1+" . "+questionArray[i].getAnswer());
+			System.out.println((i+1) + " . " + questionArray[i].getAnswer());
 		}
 	}
 	

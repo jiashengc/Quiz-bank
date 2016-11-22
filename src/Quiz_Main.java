@@ -176,6 +176,7 @@ public class Quiz_Main {
 			System.out.println("  "+(count+1) +" \t\t\t" +funQuizes.getModu(j).getModuleName() );
 			count+=1;
 		}
+		System.out.println("\nInput \"-1\" to return to menu.\n");
 		
 		do {
 			System.out.print("Input: ");
@@ -190,7 +191,7 @@ public class Quiz_Main {
 			} // end of if else statement
 			
 			// Check if user input is legit
-			if (userInput == "-1") {
+			if (changedInput == -1) {
 				System.out.println("Going back to menu...");
 				menu();  // Back to menu if user enter sentinel value -1
 			}
@@ -214,11 +215,12 @@ public class Quiz_Main {
 	
 	public static void printFunKey(Modules modu){
 		QuizFunQuestions.showAnswer(modu);
+		answerMenu();
 	}
 	
 	public static void printEduAnswer(Modules modu) {
-		
 		QuizEduQuestions.showAnswer(modu);
+		answerMenu();
 	}
 	
 	public static void printEduQuestions(Modules modu) {
