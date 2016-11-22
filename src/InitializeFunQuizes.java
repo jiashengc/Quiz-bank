@@ -1,7 +1,7 @@
 
 public class InitializeFunQuizes {
 
-	private Modules modu[] = new Modules[1];
+	private Modules modu[] = new Modules[2];
 	private QuestionsFun[] questions;
 	
 	// Produce constructor and all setter and getters.
@@ -107,7 +107,89 @@ public class InitializeFunQuizes {
 		
 		//Define all characters
 		characters[0] = "Sora";
-		characters[1] = "";
+		characters[1] = "Riku";
+		characters[2] = "Aqua";
+		characters[3] = "Ventus";
+		
+		// Define character's description
+		characterDesc[0] = "You are Sora, sincere about what you says and does, also possesses a strong sense of justice and an unrelenting heart.";
+		characterDesc[1] = "You are Riku, although sometimes wander around light and darkness but you always ready to sacrifice himself to protect your friend.";
+		characterDesc[2] = "You are Aqua, believe in unbreakable connections, brave when facing obstacles and high determination.";
+		characterDesc[3] = "You are Ventus, always been happy and positive around people that is better than you but you yourself carries high potential.";
+		
+		questions[0].setQuestionName("What is most important to you?");
+		questions[0].setQuestionOption(new String[] {
+				"Being number one.", 
+				"Friendship.", 
+				"Prize possessions.",
+				"Hapiness"});
+		questions[0].setQuestionKey(new int[] {0, 2, 1,3});
+		
+		questions[1].setQuestionName("What do you want outta life?");
+		questions[1].setQuestionOption(new String[] {
+				"To see rare sights.", 
+				"To be with friends and family.",
+				"To broaden my horizons.", 
+				"To be strong."});
+		questions[1].setQuestionKey(new int[] {0, 3, 2, 1});
+		
+		questions[2].setQuestionName("What are you afraid of?");
+		questions[2].setQuestionOption(new String[] {
+				"Getting old.", 
+				"Being different.",
+				"Become a villian",
+				"Being indecisive."});
+		questions[2].setQuestionKey(new int[] {2, 3, 1, 0});
+		
+		questions[3].setQuestionName("What will you choose?");
+		questions[3].setQuestionOption(new String[] {
+				"Sheild.", 
+				"Staff.", 
+				"Sword.",
+				"Nature"});
+		questions[3].setQuestionKey(new int[] {1, 2, 0, 3});
+		
+		questions[4].setQuestionName("What are you doing if u are stuck inside dark realm?");
+		questions[4].setQuestionOption(new String[] {
+				"Searching for light.", 
+				"Succumb to darkness.", 
+				"Explore inside there.",
+				"Waiting for rescue."});
+		questions[4].setQuestionKey(new int[] {2, 1, 3, 0});
+		
+		questions[5].setQuestionName("What will you do if to recover your friend that lost memory?");
+		questions[5].setQuestionOption(new String[] {
+				"Just be with him//her to build new memory.", 
+				"Wander around darkness to find a way to cure him/her.", 
+				"Willing to give up the most valuable possession to save him/her.",
+				"Accept darkness in yourself to be strong enough to help."});
+		questions[5].setQuestionKey(new int[] {3, 2, 0, 1});
+		
+		questions[6].setQuestionName("Choose one of the power you would like to have.");
+		questions[6].setQuestionOption(new String[] {
+				"Light.",
+				"Wind.",
+				"Magic.", 
+				"Darkness."});
+		questions[6].setQuestionKey(new int[] {0, 3, 2, 1});
+		
+		questions[7].setQuestionName("What would you do if u have a chance to travel to different world from our dimension?");
+		questions[7].setQuestionOption(new String[] {
+				"Make new friends and help them through the journey.", 
+				"Be nice and kind to people that you meet there.", 
+				"Venture around and take adventure in the new world.",
+				"Find the core problem to be solve in that world to move on."});
+		questions[7].setQuestionKey(new int[] {0, 2, 3, 1});
+		
+		questions[8].setQuestionName("If your friend is seperated with you with conflict, what would you do?");
+		questions[8].setQuestionOption(new String[] {
+				"Simply have to just find them.", 
+				"Avoid them even if we do meet because i am not best version of myself.", 
+				"Do all the best to find a way to find them.",
+				"Find them and solve the problem because I treat them as family."});
+		questions[8].setQuestionKey(new int[] {0, 2, 1, 3});
+		
+		this.modu[1] = new QuizFunQuestions("Fun", "Kingdom Hearts Character", questions, characters, characterDesc, charactersPoint);
 	}
 	
 	public Modules[] getModu() {
