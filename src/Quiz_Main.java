@@ -112,11 +112,11 @@ public class Quiz_Main {
 		
 		System.out.println("Which fun quiz would you like to attempt?");
 		System.out.println("============================================");
-		System.out.println("Options \t\t\t input");
+		System.out.println("Input \t\t\t Options");
 		System.out.println("============================================");
 		for (int n = 0; n < funQuizes.getModu().length; n+=1) {
-			System.out.println(funQuizes.getModu(n).getModuleName() +
-					" \t\t  " + (n + 1));
+			System.out.println(" "+(n + 1) +" \t\t  " 
+					+funQuizes.getModu(n).getModuleName());
 		}
 		System.out.println("============================================");
 		System.out.println("Input \"-1\" to return to MENU.\n");
@@ -312,7 +312,6 @@ public class Quiz_Main {
 			char ch = results[i];
 			int pos = (int)ch;
 			pos -= 65;
-			System.out.println(pos);
 			convertedNumbers[i] = ((QuizFunQuestions)modu).questionArray[i].getQuestionKey(pos);
 		}
 		
