@@ -22,8 +22,7 @@ public class Quiz_Main {
 
 		System.out.println("");
 		System.out.println("Options \t\t\t Input");
-
-
+		System.out.println("=====================================");
 		System.out.println("Education Quizes \t\t   1");
 		System.out.println("Fun Quizes \t\t\t   2");
 		System.out.println("Results \t\t\t   3");
@@ -66,11 +65,11 @@ public class Quiz_Main {
 		
 		System.out.println("Which educational quiz would you like to attempt?");
 		System.out.println("============================================");
-		System.out.println("Options \t\t\t input");
+		System.out.println("Input \t\t\t Options");
 		System.out.println("============================================");
 		for (int n = 0; n < eduQuizes.getModu().length; n+=1) {
-			System.out.println(eduQuizes.getModu(n).getModuleName() +
-					" \t\t\t  " + (n + 1));
+			System.out.println("  " +(n + 1) + " \t\t\t "
+					+eduQuizes.getModu(n).getModuleName());
 		}
 		System.out.println("============================================");
 		System.out.println("Input \"-1\" to return to MENU.\n");
