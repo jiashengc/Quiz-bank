@@ -1,7 +1,7 @@
 
 public class InitializeFunQuizes {
 
-	private Modules modu[] = new Modules[2];
+	private Modules modu[] = new Modules[3];
 	private QuestionsFun[] questions;
 	
 	// Produce constructor and all setter and getters.
@@ -10,6 +10,7 @@ public class InitializeFunQuizes {
 		// Initialize all the fun quizzes
 		hyperdimensionCharacter();
 		kingdomHeartsCharacter();
+		Dota2Character();
 		
 	}
 	
@@ -190,6 +191,88 @@ public class InitializeFunQuizes {
 		questions[8].setQuestionKey(new int[] {0, 2, 1, 3});
 		
 		this.modu[1] = new QuizFunQuestions("Fun", "Kingdom Hearts Character", questions, characters, characterDesc, charactersPoint);
+	}
+	
+	public void Dota2Character() {
+		
+		QuestionsFun[] questions = new QuestionsFun[9];
+		String[] characters = new String[4];
+		String[] characterDesc = new String[4];
+		int[] charactersPoint = {0, 0, 0, 0};
+		
+		for (int i = 0; i < questions.length; i++) {
+			questions[i] = new QuestionsFun(4);
+		}
+		
+		// Define available characters
+		characters[0] = "Crystal Maiden";
+		characters[1] = "Lina";
+		characters[2] = "Phantom Assasin";
+		characters[3] = "Enigma";
+		
+		// Define character's description
+		characterDesc[0] = "You're a shit player with the skill of a Hero Crystal Maiden. I suggest leave the Dota community.";
+		characterDesc[1] = "You're a decent noob player who thinks you can cope up with pros just like Lina. Suggestion says your likely 1k MMR";
+		characterDesc[2] = "You're a average player with potential just like Phantom Assasin . Refine your skills to be a professional.";
+		characterDesc[3] = "You're a decendant of the Chi Long Qua god's, just like Enigma you're a big deal . Suggestion says jump in and 1 v 5.";
+			
+		questions[0].setQuestionName("What is your role?");
+		questions[0].setQuestionOption(new String[] {"Feeder", "Carry", "Jungler", "Support"});
+		questions[0].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[1].setQuestionName("What is you're MMR?");
+		questions[1].setQuestionOption(new String[] {"1k", "2k", "3k", "4k++"});
+		questions[1].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[2].setQuestionName("You're 25000 GPM and XPM down compared to the enermy team ,its 24 minutes in the gamw what should you do?");
+		questions[2].setQuestionOption(new String[] {"Team Stupid", "All chat GGWP", "Be as tryhard as possible", "Enjoy the game"});
+		questions[2].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[3].setQuestionName("Rapier has been dropped by your carry, you're team gives up, what should you do?");
+		questions[3].setQuestionOption(new String[] {
+				"Cut trees and hide in the trees", 
+				"Yell GG noob carry",
+				"Defend and hope to make a big difference under tower",
+				"Make a smoke attempt to kill the opponents off guard"
+		});
+		questions[3].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[4].setQuestionName("What is your ideal weapon as a carry?");
+		questions[4].setQuestionOption(new String[] {"Shadow Blade", "Sange and Yasha", "Desolator", "Divine Rapier"});
+		questions[4].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[5].setQuestionName("Which is the best team layout?");
+		questions[5].setQuestionOption(new String[] {
+				"Phantom Assasin,Juggernaught,Sniper,Templa Assasin,Shadow Fiend",
+				"Weaver,Rikki,Bounty Hunter,Templa Assasin,Clinks",
+				"Enigma,Silencer,Omninight,Shadow Fiend,Dragon Knight",
+				"Tidehunter,Invoker,Phantom Assasin,Dazzle,Slardar"
+		});
+		questions[5].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[6].setQuestionName("What is your favourite ARCANA?");
+		questions[6].setQuestionOption(new String[] {
+				"CM arcana",
+				"Lina arcana",
+				"PA arcana",
+				"Techies arcana"
+		});
+		questions[6].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[7].setQuestionName("Who is the best hero for you?");
+		questions[7].setQuestionOption(new String[] {"Phantom Assasin", "Rikki", "Shadow Fiend", "Invoker"});
+		questions[7].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		questions[8].setQuestionName("Do you want kill roshan when the enermy team is missing?");
+		questions[8].setQuestionOption(new String[] {
+				"YES! Let's do it!",
+				"We should but spread out in the rosh pit",
+				"One should wait oustide",
+				"Let,s go in smoke up and back to our jungle and wait"
+		});
+		questions[8].setQuestionKey(new int[] {0, 1, 2, 3});
+		
+		this.modu[2] = new QuizFunQuestions("Fun", "Dota2 Character", questions, characters, characterDesc, charactersPoint);
 	}
 	
 	public Modules[] getModu() {
