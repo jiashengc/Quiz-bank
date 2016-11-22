@@ -4,6 +4,7 @@ public class InitializeFunQuizes {
 	private Modules modu[] = new Modules[1];
 	private QuestionsFun[] questions;
 	
+	// Produce constructor and all setter and getters.
 	public InitializeFunQuizes() {
 		
 		// Initialize all the fun quizzes

@@ -2,6 +2,7 @@
 public class QuestionsFun extends Questions {
 	private int questionKey[];
 
+	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public QuestionsFun() {
 		questionKey = new int[4];
 	}

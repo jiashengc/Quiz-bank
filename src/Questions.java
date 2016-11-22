@@ -3,6 +3,7 @@ public abstract class Questions {
 	private String questionName;
 	private String questionOption[];
 	
+	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public Questions(){
 		questionName = "";
 		questionOption = new String[]{};

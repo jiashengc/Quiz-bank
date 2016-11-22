@@ -4,6 +4,7 @@ public class Result {
 	private String givenCharacter = "";
 	private String givenCharacterDesc = "";
 	
+	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public Result() {
 		percentageCorrect = "0.0%";
 		givenCharacter = "none";

@@ -5,6 +5,7 @@ public abstract  class Modules {
 	private String moduleName;
 	private ArrayList<Result> results = new ArrayList<Result>();
 	
+	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public Modules(){
 		moduleType = "";
 	}

@@ -2,6 +2,7 @@
 public class QuestionsEdu extends Questions {
 	private String answer;
 	
+	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public QuestionsEdu(){
 		answer = "";
 	}

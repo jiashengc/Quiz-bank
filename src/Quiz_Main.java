@@ -154,75 +154,6 @@ public class Quiz_Main {
 		
 	}
 	
-	public static void answerMenu(){
-		int count = 0, changedInput = 0;
-		String userInput = "";
-		
-		System.out.println("Select the question to show answer");
-		System.out.println("Edu Questions");
-		System.out.println("============================================");
-		System.out.println("Input \t\t\t Quesiton");
-		System.out.println("============================================");
-		for(int i = 0; i < eduQuizes.getModu().length;i++){
-			System.out.println("  "+(count+1) +" \t\t\t" +eduQuizes.getModu(i).getModuleName() );
-			count+=1;
-		}
-		
-		System.out.println("\nFun Questions");
-		System.out.println("============================================");
-		System.out.println("Input \t\t\t Quesiton");
-		System.out.println("============================================");
-		for (int j = 0; j < funQuizes.getModu().length; j+=1) {
-			System.out.println("  "+(count+1) +" \t\t\t" +funQuizes.getModu(j).getModuleName() );
-			count+=1;
-		}
-		System.out.println("\nInput \"-1\" to return to menu.\n");
-		
-		do {
-			System.out.print("Input: ");
-			userInput = input.next();
-			
-			// To prevent error if userInput char/string
-			if (!userInput.matches("[a-zA-Z]+")) {
-				changedInput = Integer.parseInt(userInput);
-			}
-			else {
-				changedInput = -100;
-			} // end of if else statement
-			
-			// Check if user input is legit
-			if (changedInput == -1) {
-				System.out.println("Going back to menu...");
-				menu();  // Back to menu if user enter sentinel value -1
-			}
-			// Check if user inputed number is within quizzes range
-			else if (changedInput > 0 && changedInput <= eduQuizes.getModu().length) {
-				lastModule = changedInput - 1;
-				printEduAnswer(eduQuizes.getModu(lastModule));
-			}
-			else if(changedInput > eduQuizes.getModu().length){
-				lastModule = (changedInput - eduQuizes.getModu().length) - 1;
-				printFunKey(funQuizes.getModu(lastModule));
-			}
-			else {
-				userInput = "Invalid";
-				System.out.println("Your input is invalid, please try again.");
-			} // end of if else statement
-					
-		} while(userInput == "Invalid"); // end of do while loop
-		
-	}
-	
-	public static void printFunKey(Modules modu){
-		QuizFunQuestions.showAnswer(modu);
-		answerMenu();
-	}
-	
-	public static void printEduAnswer(Modules modu) {
-		QuizEduQuestions.showAnswer(modu);
-		answerMenu();
-	}
-	
 	public static void printEduQuestions(Modules modu) {
 		
 		int count = 0;
@@ -456,6 +387,81 @@ public class Quiz_Main {
 		System.out.print("Type anything to continue: ");
 		temp = input.next();
 		menu();
+	}
+	
+	public static void answerMenu(){
+		int count = 0, changedInput = 0;
+		String userInput = "";
+		
+		System.out.println("Select the question to show answer");
+		System.out.println("Edu Questions");
+		System.out.println("============================================");
+		System.out.println("Input \t\t\t Quesiton");
+		System.out.println("============================================");
+		for(int i = 0; i < eduQuizes.getModu().length;i++){
+			System.out.println("  "+(count+1) +" \t\t\t" +eduQuizes.getModu(i).getModuleName() );
+			count+=1;
+		}
+		
+		System.out.println("\nFun Questions");
+		System.out.println("============================================");
+		System.out.println("Input \t\t\t Quesiton");
+		System.out.println("============================================");
+		for (int j = 0; j < funQuizes.getModu().length; j+=1) {
+			System.out.println("  "+(count+1) +" \t\t\t" +funQuizes.getModu(j).getModuleName() );
+			count+=1;
+		}
+		System.out.println("\nInput \"-1\" to return to menu.\n");
+		
+		do {
+			System.out.print("Input: ");
+			userInput = input.next();
+			
+			// To prevent error if userInput char/string
+			if (!userInput.matches("[a-zA-Z]+")) {
+				changedInput = Integer.parseInt(userInput);
+			}
+			else {
+				changedInput = -100;
+			} // end of if else statement
+			
+			// Check if user input is legit
+			if (changedInput == -1) {
+				System.out.println("Going back to menu...");
+				menu();  // Back to menu if user enter sentinel value -1
+			}
+			// Check if user inputed number is within quizzes range
+			else if (changedInput > 0 && changedInput <= eduQuizes.getModu().length) {
+				lastModule = changedInput - 1;// decrease value of input by 1 to match the index of array
+				printEduAnswer(lastModule);// pass the number of input to the print method
+			}
+			else if(changedInput > eduQuizes.getModu().length){
+				lastModule = (changedInput - eduQuizes.getModu().length) - 1;// decrease value of input by length of eduQuizes+1 to match the index of array
+				printFunKey(lastModule);// pass the number of input to the print method
+			}
+			else {
+				userInput = "Invalid";
+				System.out.println("Your input is invalid, please try again.");
+			} // end of if else statement
+					
+		} while(userInput == "Invalid"); // end of do while loop
+		
+	}
+	
+	public static void printFunKey(int i ){
+		/* call showAnswer method respectively to the funQuizes and value 
+		   passed when calling printFunKey method to get the index of module */
+		funQuizes.getModu(i).showAnswer(); 
+		// back to answerMenu
+		answerMenu();
+	}
+	
+	public static void printEduAnswer(int i ) {
+		/* call showAnswer method respectively to the eduQuizes and value
+		   passed when calling printEduAnswer method to get the index of module */
+		eduQuizes.getModu(i).showAnswer();
+		// back to answerMenu
+		answerMenu();
 	}
 	
 }

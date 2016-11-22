@@ -5,6 +5,7 @@ public class QuizEduQuestions extends Modules{
 	private int maxScore;
 	private int score;
 	
+	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public QuizEduQuestions(){
 		QuestionsEdu questionArray[] = new QuestionsEdu[10];
 		for (int i = 0; i < 10; i+=1) {
@@ -65,19 +66,14 @@ public class QuizEduQuestions extends Modules{
 		return tmp;
 	}
 	
-	public static void showAnswer(Modules modu) {
-		int count = 0;
-		for(int i = 0 ; i < ((QuizEduQuestions)modu).questionArray.length; i++){
-			System.out.print(count+1 +".  ");
-			System.out.println(((QuizEduQuestions)modu).questionArray[i].getAnswer());
-			count++;
-		}
-	}
-	
 	public void showAnswer(){
+		System.out.println("Answer for " +getModuleName());// get name of the module requested
+		System.out.println("=====================================");
 		for(int i = 0; i < questionArray.length; i++){
-			System.out.println((i+1) + " . " + questionArray[i].getAnswer());
+			// Get the answer for each question for the respective module
+			System.out.println((i+1) + ". " + questionArray[i].getAnswer());
 		}
+		System.out.println();
 	}
 	
 	public String toString(){
