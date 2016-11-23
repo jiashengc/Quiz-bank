@@ -21,7 +21,7 @@ public class InitializeFunQuizes {
 		String[] characterDesc = new String[4];
 		int[] charactersPoint = {0, 0, 0, 0};
 		
-		for (int i = 0; i < questions.length; i+=1) {
+		for (int i = 0; i < questions.length; i++) {
 			questions[i] = new QuestionsFun(4);
 		}
 		

@@ -37,5 +37,13 @@ public class QuestionsFun extends Questions {
 		this.questionKey = questionKey;
 	}
 	
+	@Override
+	public String toString() {
+		String temp = "";
+		for (int i = 0; i < getQuestionKey().length; i+=1) {
+			temp += getQuestionKey(i);
+		}
+		return super.toString() + temp;
+	}
 	
 }

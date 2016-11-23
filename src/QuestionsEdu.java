@@ -21,8 +21,9 @@ public class QuestionsEdu extends Questions {
 		this.answer = answer;
 	}
 	
+	@Override
 	public String toString(){
-		return "\nQuestion name\t:\t"+ answer;
+		return super.toString() + getAnswer();
 	}
 	
 	

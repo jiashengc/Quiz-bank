@@ -1,6 +1,6 @@
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.Scanner;
 
 public class Quiz_Main {
 	

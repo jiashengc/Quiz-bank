@@ -5,6 +5,7 @@ public class QuizFunQuestions extends Modules {
 	private String characters[];
 	private String characterDesc[];
 	private int charactersPoint[];
+	private final char[] temp = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 	
 	// Produce all constructor, overloaded constructor, and all setter and getters.
 	public QuizFunQuestions() {
@@ -86,33 +87,16 @@ public class QuizFunQuestions extends Modules {
 	
 	public void showAnswer(){
 			
-		System.out.println(getCharacters(0));// Get the character name from array index 0
-		System.out.println("=====================================");
-		for(int i = 0; i < questionArray.length; i++){
-			// get the 1st index  of question key for each question
-			System.out.println(i+1+" . "+questionArray[i].getQuestionKey(0));
+		for (int n = 0; n < 4; n+=1) {
+			System.out.println();
+			System.out.println(getCharacters(n));// Get the character name from array index 0
+			System.out.println("=====================================");
+			for(int i = 0; i < questionArray.length; i++){
+				// get the 1st index  of question key for each question
+				System.out.println(i+1+" . " + temp[questionArray[i].getQuestionKey(n)]);
+			}			
 		}
-			
-		System.out.println("\n"+getCharacters(1));// Get the character name from array index 1
-		System.out.println("=====================================");
-		for(int i = 0; i < questionArray.length; i++){
-			// get the 2nd index  of question key for each question
-			System.out.println(i+1+" . "+questionArray[i].getQuestionKey(1));
-		}
-			
-		System.out.println("\n"+getCharacters(2));// Get the character name from array index 2
-		System.out.println("=====================================");
-		for(int i = 0; i < questionArray.length; i++){
-			// get the 3rd index  of question key for each question
-			System.out.println(i+1+" . "+questionArray[i].getQuestionKey(2));
-		}
-			
-		System.out.println("\n"+getCharacters(3));// Get the character name from array index 3
-		System.out.println("=====================================");
-		for(int i = 0; i < questionArray.length; i++){
-			// get the 4th index  of question key for each question
-			System.out.println(i+1+" . "+questionArray[i].getQuestionKey(3));
-		}
-		System.out.println();
+
+		System.out.println("\n");
 	}
 }
