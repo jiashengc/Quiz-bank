@@ -170,7 +170,7 @@ public class Quiz_Main {
 			i = 0;
 			
 			System.out.println("");
-			System.out.println(((QuizEduQuestions)modu).questionArray[count].getQuestionName());
+			System.out.println((count+1) + ". "  + ((QuizEduQuestions)modu).questionArray[count].getQuestionName());
 			
 			// Loop through the individual questions options array
 			for (int n = 0; n < ((QuizEduQuestions)modu).questionArray[count].getQuestionOption().length; n+=1) {
@@ -225,7 +225,7 @@ public class Quiz_Main {
 		do {
 			
 			System.out.println("");
-			System.out.println(((QuizFunQuestions)modu).questionArray[count].getQuestionName());
+			System.out.println((count + 1) + ". " + ((QuizFunQuestions)modu).questionArray[count].getQuestionName());
 			
 			// Loop through the individual questions options array
 			for (int n = 0; n < ((QuizFunQuestions)modu).questionArray[count].getQuestionOption().length; n+=1) {
@@ -392,18 +392,18 @@ public class Quiz_Main {
 		String userInput = "";
 		
 		System.out.println("Select the question to show answer");
-		System.out.println("Edu Questions");
+		System.out.println("Edu Quizzes");
 		System.out.println("============================================");
-		System.out.println("Input \t\t\t Quesiton");
+		System.out.println("Input \t\t\t Quiz");
 		System.out.println("============================================");
 		for(int i = 0; i < eduQuizes.getModu().length;i++){
 			System.out.println("  "+(count+1) +" \t\t\t" +eduQuizes.getModu(i).getModuleName() );
 			count+=1;
 		}
 		
-		System.out.println("\nFun Questions");
+		System.out.println("\nFun Quizzes");
 		System.out.println("============================================");
-		System.out.println("Input \t\t\t Quesiton");
+		System.out.println("Input \t\t\t Quiz");
 		System.out.println("============================================");
 		for (int j = 0; j < funQuizes.getModu().length; j+=1) {
 			System.out.println("  "+(count+1) +" \t\t\t" +funQuizes.getModu(j).getModuleName() );
